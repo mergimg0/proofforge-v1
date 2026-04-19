@@ -1,0 +1,428 @@
+{
+  "model": "deepseek-prover-v2:7b-q4",
+  "attempts_per_theorem": 2,
+  "total_theorems": 50,
+  "solved": 14,
+  "pass_at_k": 0.28,
+  "pass_at_1_approx": 0.17,
+  "by_tier": {
+    "1": {
+      "total": 15,
+      "solved": 10
+    },
+    "2": {
+      "total": 15,
+      "solved": 3
+    },
+    "3": {
+      "total": 10,
+      "solved": 0
+    },
+    "4": {
+      "total": 10,
+      "solved": 1
+    }
+  },
+  "results": [
+    {
+      "id": "t1_01",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 2,
+      "solved": true,
+      "best_proof": "trivial"
+    },
+    {
+      "id": "t1_02",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t1_03",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t1_04",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t1_05",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 2,
+      "solved": true,
+      "best_proof": "simp [Nat]"
+    },
+    {
+      "id": "t1_06",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "rfl"
+    },
+    {
+      "id": "t1_07",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "simp [Nat]"
+    },
+    {
+      "id": "t1_08",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t1_09",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "simp [False]"
+    },
+    {
+      "id": "t1_10",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "\u00b7 constructor <;> trivial"
+    },
+    {
+      "id": "t1_11",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "apply Or.inl <;> trivial"
+    },
+    {
+      "id": "t1_12",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "rfl"
+    },
+    {
+      "id": "t1_13",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "rfl"
+    },
+    {
+      "id": "t1_14",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t1_15",
+      "difficulty": 1,
+      "attempts": 2,
+      "verified": 2,
+      "solved": true,
+      "best_proof": "rfl"
+    },
+    {
+      "id": "t2_01",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "rfl"
+    },
+    {
+      "id": "t2_02",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_03",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_04",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_05",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "simp [Nat.mul_one]"
+    },
+    {
+      "id": "t2_06",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_07",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "intro h; assumption"
+    },
+    {
+      "id": "t2_08",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_09",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_10",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_11",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_12",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_13",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_14",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t2_15",
+      "difficulty": 2,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_01",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_02",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_03",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_04",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_05",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_06",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_07",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_08",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_09",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t3_10",
+      "difficulty": 3,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_01",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_02",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_03",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 1,
+      "solved": true,
+      "best_proof": "simp [or_comm]"
+    },
+    {
+      "id": "t4_04",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_05",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_06",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_07",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_08",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_09",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    },
+    {
+      "id": "t4_10",
+      "difficulty": 4,
+      "attempts": 2,
+      "verified": 0,
+      "solved": false,
+      "best_proof": null
+    }
+  ]
+}

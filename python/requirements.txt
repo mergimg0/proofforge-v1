@@ -1,0 +1,10 @@
+# ProofForge Phase 4: ML dependencies
+torch>=2.0
+transformers>=4.40
+accelerate>=0.30
+peft>=0.10
+trl>=0.8
+flask>=3.0
+datasets
+sentencepiece
+protobuf

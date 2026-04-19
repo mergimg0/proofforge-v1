@@ -1,0 +1,588 @@
+#!/usr/bin/env python3
+"""
+extended_analyses.py — Extended analyses on GRPO Lean-reward training data
+
+Covers items 4, 6, 7, 9, 10, 12 from the outstanding analysis list:
+  4. Temperature breadth (learning depth) across checkpoints
+  6+11. Tactic extraction and infrastructure usage
+  7. Trajectory length ratio (low-T / high-T)
+  9. Tactic composition detection
+  10. Regression analysis
+  12. Sigmoid scaling law fit
+
+Usage:
+  python3 python/cgle_analysis/extended_analyses.py \
+      --data-dir grpo_lean_run_final \
+      --output-dir cgle_analysis_results/extended
+"""
+
+import argparse
+import json
+import re
+from collections import defaultdict
+from pathlib import Path
+from typing import Optional
+
+import numpy as np
+from scipy.optimize import curve_fit
+
+
+# ---------------------------------------------------------------------------
+# Shared infrastructure
+# ---------------------------------------------------------------------------
+
+TACTIC_KEYWORDS = [
+    "simp", "rfl", "decide", "omega", "intro", "exact", "constructor",
+    "trivial", "tauto", "aesop", "norm_num", "ring", "cases", "induction",
+    "apply", "have", "unfold", "rw", "linarith", "by_cases", "left", "right",
+    "contradiction", "absurd", "funext", "ext", "congr", "calc", "suffices",
+    "obtain", "rcases", "rintro", "push_neg", "by_contra", "exfalso",
+]
+
+TACTIC_SET = set(TACTIC_KEYWORDS)
+
+
+def decode_proof_text(raw: str) -> str:
+    return raw.replace("\u010a", "\n").replace("\u0120", " ")
+
+
+def find_checkpoints(data_dir: Path) -> list[tuple[int, Path]]:
+    pattern = re.compile(r"^checkpoint_(\d+)$")
+    found = []
+    for entry in data_dir.iterdir():
+        if entry.is_dir():
+            m = pattern.match(entry.name)
+            if m:
+                found.append((int(m.group(1)), entry))
+    found.sort(key=lambda x: x[0])
+    return found
+
+
+def load_npz_file(fpath: Path) -> Optional[dict]:
+    try:
+        # Our own trajectory files - pickle trust is acceptable
+        data = np.load(fpath, allow_pickle=True)
+    except Exception:
+        return None
+    rec = {"_path": fpath}
+    if "success" in data:
+        val = data["success"]
+        rec["success"] = bool(val.item() if hasattr(val, "item") else val)
+    else:
+        rec["success"] = False
+    if "temperature" in data:
+        val = data["temperature"]
+        rec["temperature"] = float(val.item() if hasattr(val, "item") else val)
+    else:
+        rec["temperature"] = float("nan")
+    if "statement" in data:
+        val = data["statement"]
+        rec["statement"] = str(val.item() if hasattr(val, "item") else val)
+    else:
+        rec["statement"] = fpath.stem
+    if "proof_text" in data:
+        val = data["proof_text"]
+        rec["proof_text"] = decode_proof_text(str(val.item() if hasattr(val, "item") else val))
+    else:
+        rec["proof_text"] = ""
+    if "tokens" in data:
+        rec["n_tokens"] = int(len(data["tokens"]))
+    elif "hidden_states" in data and data["hidden_states"].ndim == 2:
+        rec["n_tokens"] = int(data["hidden_states"].shape[0])
+    else:
+        rec["n_tokens"] = len(rec["proof_text"].split())
+    return rec
+
+
+def load_checkpoint(chk_dir: Path) -> list[dict]:
+    records = []
+    for fpath in sorted(chk_dir.glob("*.npz")):
+        rec = load_npz_file(fpath)
+        if rec is not None:
+            records.append(rec)
+    return records
+
+
+def theorem_id(record: dict) -> str:
+    stmt = record.get("statement", "")
+    if stmt:
+        return stmt.strip()
+    return record["_path"].stem
+
+
+# ---------------------------------------------------------------------------
+# Analysis 4: Temperature breadth (learning depth)
+# ---------------------------------------------------------------------------
+
+def analysis_temperature_breadth(checkpoints, all_theorems):
+    print("\n" + "=" * 72)
+    print("ANALYSIS 4: Temperature breadth (learning depth)")
+    print("=" * 72)
+
+    steps = [c[0] for c in checkpoints]
+    breadth = {}
+    for step, records_by_thm in checkpoints:
+        for tid in all_theorems:
+            solving_temps = set()
+            for rec in records_by_thm.get(tid, []):
+                if rec["success"]:
+                    t = round(rec["temperature"], 1)
+                    solving_temps.add(t)
+            breadth.setdefault(tid, []).append((step, len(solving_temps)))
+
+    print(f"\n{'Checkpoint':<12}  {'Fully(3T)':<12}  {'Mostly(2T)':<12}  {'Fragile(1T)':<12}  {'Unsolved(0T)':<12}  {'Depth_ratio':<12}")
+    print("-" * 80)
+
+    depth_ratios = []
+    for idx, step in enumerate(steps):
+        fully = mostly = fragile = unsolved = 0
+        for tid in all_theorems:
+            n_temps = breadth[tid][idx][1]
+            if n_temps == 3:
+                fully += 1
+            elif n_temps == 2:
+                mostly += 1
+            elif n_temps == 1:
+                fragile += 1
+            else:
+                unsolved += 1
+        total_solved = fully + mostly + fragile
+        ratio = fully / total_solved if total_solved > 0 else 0.0
+        depth_ratios.append(ratio)
+        print(f"C{step:04d}        {fully:<12d}  {mostly:<12d}  {fragile:<12d}  {unsolved:<12d}  {ratio:.3f}")
+
+    print(f"\nTheorems with monotonically increasing depth:")
+    mono_count = 0
+    for tid in all_theorems:
+        vals = [b[1] for b in breadth[tid]]
+        nonzero = [(i, v) for i, v in enumerate(vals) if v > 0]
+        if len(nonzero) >= 2:
+            is_mono = all(nonzero[i+1][1] >= nonzero[i][1] for i in range(len(nonzero)-1))
+            if is_mono and nonzero[-1][1] > nonzero[0][1]:
+                first_step = steps[nonzero[0][0]]
+                last_step = steps[nonzero[-1][0]]
+                first_depth = nonzero[0][1]
+                last_depth = nonzero[-1][1]
+                tid_disp = tid[:55]
+                print(f"  {tid_disp:<57} {first_depth}T@C{first_step:04d} -> {last_depth}T@C{last_step:04d}")
+                mono_count += 1
+    print(f"\n  {mono_count}/{len(all_theorems)} theorems show monotonic depth increase")
+
+    return breadth, depth_ratios
+
+
+# ---------------------------------------------------------------------------
+# Analysis 6+11: Tactic extraction and infrastructure usage
+# ---------------------------------------------------------------------------
+
+def extract_first_tactic(proof_text: str) -> Optional[str]:
+    text = proof_text.strip()
+    if not text:
+        return None
+    for line in text.splitlines():
+        stripped = line.strip().lower()
+        if not stripped or stripped.startswith("--") or stripped.startswith("#"):
+            continue
+        if stripped.startswith("theorem") or stripped.startswith("lemma"):
+            continue
+        first_token = re.split(r"[\s(;{]+", stripped)[0].rstrip(":")
+        if first_token in TACTIC_SET:
+            return first_token
+        for tac in TACTIC_KEYWORDS:
+            if stripped.startswith(tac):
+                return tac
+        break
+    return None
+
+
+def analysis_tactic_distribution(checkpoints, all_theorems):
+    print("\n" + "=" * 72)
+    print("ANALYSIS 6+11: Tactic extraction and infrastructure usage")
+    print("=" * 72)
+
+    tactic_matrix = {}
+    all_tactics_seen = set()
+
+    for step, records_by_thm in checkpoints:
+        tactic_counts = defaultdict(int)
+        for tid in all_theorems:
+            for rec in records_by_thm.get(tid, []):
+                if rec["success"]:
+                    tac = extract_first_tactic(rec["proof_text"])
+                    if tac:
+                        tactic_counts[tac] += 1
+                        all_tactics_seen.add(tac)
+                    else:
+                        tactic_counts["<unknown>"] += 1
+        tactic_matrix[step] = dict(tactic_counts)
+
+    sorted_tactics = sorted(all_tactics_seen)
+    col_width = max(8, max((len(t) for t in sorted_tactics), default=8))
+
+    print(f"\nTactic x Checkpoint matrix (count of successful proofs using each first tactic):")
+    header = f"{'Checkpoint':<12}  " + "  ".join(f"{t:<{col_width}}" for t in sorted_tactics) + f"  {'<unknown>':<{col_width}}"
+    print(header)
+    print("-" * len(header))
+
+    for step, records_by_thm in checkpoints:
+        counts = tactic_matrix[step]
+        row = "  ".join(f"{counts.get(t, 0):<{col_width}d}" for t in sorted_tactics)
+        unk = counts.get("<unknown>", 0)
+        print(f"C{step:04d}        {row}  {unk:<{col_width}d}")
+
+    print(f"\nDominant tactic per checkpoint:")
+    for step, records_by_thm in checkpoints:
+        counts = tactic_matrix[step]
+        if counts:
+            dominant = max(counts.items(), key=lambda x: x[1])
+            total = sum(counts.values())
+            pct = 100 * dominant[1] / total if total > 0 else 0
+            print(f"  C{step:04d}: {dominant[0]} ({dominant[1]}/{total}, {pct:.1f}%)")
+
+    return tactic_matrix
+
+
+# ---------------------------------------------------------------------------
+# Analysis 7: Trajectory length ratio (low-T / high-T)
+# ---------------------------------------------------------------------------
+
+def analysis_length_ratio(checkpoints, all_theorems):
+    print("\n" + "=" * 72)
+    print("ANALYSIS 7: Trajectory length ratio (low-T / high-T)")
+    print("=" * 72)
+
+    print(f"\n{'Checkpoint':<12}  {'N_multi_T':<12}  {'Mean_ratio_0.3/1.2':<20}  {'Mean_len_T=0.3':<16}  {'Mean_len_T=1.2':<16}")
+    print("-" * 80)
+
+    for step, records_by_thm in checkpoints:
+        ratios = []
+        lens_low = []
+        lens_high = []
+        for tid in all_theorems:
+            recs = records_by_thm.get(tid, [])
+            temp_lengths = {}
+            for rec in recs:
+                if rec["success"]:
+                    t = round(rec["temperature"], 1)
+                    temp_lengths.setdefault(t, []).append(rec["n_tokens"])
+            if 0.3 in temp_lengths and 1.2 in temp_lengths:
+                mean_low = np.mean(temp_lengths[0.3])
+                mean_high = np.mean(temp_lengths[1.2])
+                if mean_high > 0:
+                    ratios.append(mean_low / mean_high)
+                    lens_low.append(mean_low)
+                    lens_high.append(mean_high)
+
+        if ratios:
+            mean_ratio = np.mean(ratios)
+            mean_l = np.mean(lens_low)
+            mean_h = np.mean(lens_high)
+            print(f"C{step:04d}        {len(ratios):<12d}  {mean_ratio:<20.3f}  {mean_l:<16.1f}  {mean_h:<16.1f}")
+        else:
+            print(f"C{step:04d}        {'0':<12}  {'N/A':<20}  {'N/A':<16}  {'N/A':<16}")
+
+    print(f"\nPer-theorem length ratio at C0150 (theorems with both T=0.3 and T=1.2 success):")
+    step_150 = None
+    for step, records_by_thm in checkpoints:
+        if step == 150:
+            step_150 = records_by_thm
+    if step_150:
+        for tid in sorted(all_theorems):
+            recs = step_150.get(tid, [])
+            temp_lengths = {}
+            for rec in recs:
+                if rec["success"]:
+                    t = round(rec["temperature"], 1)
+                    temp_lengths.setdefault(t, []).append(rec["n_tokens"])
+            if 0.3 in temp_lengths and 1.2 in temp_lengths:
+                mean_low = np.mean(temp_lengths[0.3])
+                mean_high = np.mean(temp_lengths[1.2])
+                ratio = mean_low / mean_high if mean_high > 0 else float("inf")
+                tid_disp = tid[:55]
+                direction = "low-T shorter" if ratio < 1 else "low-T longer"
+                print(f"  {tid_disp:<57} {mean_low:.0f}/{mean_high:.0f} = {ratio:.2f} ({direction})")
+
+
+# ---------------------------------------------------------------------------
+# Analysis 9: Tactic composition detection
+# ---------------------------------------------------------------------------
+
+def detect_composition(proof_text: str) -> dict:
+    text = proof_text.strip()
+    if not text:
+        return {"has_semicolon": False, "has_newline_tactics": False, "n_tactics": 0, "tactics": [], "tactic_lines": 0}
+
+    has_semi = ";" in text
+
+    tactics_found = []
+    for line in text.splitlines():
+        stripped = line.strip().lower()
+        if not stripped or stripped.startswith("--"):
+            continue
+        for tac in TACTIC_KEYWORDS:
+            if re.search(r'\b' + re.escape(tac) + r'\b', stripped):
+                tactics_found.append(tac)
+
+    unique_tactics = list(dict.fromkeys(tactics_found))
+
+    tactic_lines = 0
+    for line in text.splitlines():
+        stripped = line.strip().lower()
+        if stripped and not stripped.startswith("--") and not stripped.startswith("#"):
+            first_token = re.split(r"[\s(;{]+", stripped)[0].rstrip(":")
+            if first_token in TACTIC_SET:
+                tactic_lines += 1
+
+    return {
+        "has_semicolon": has_semi,
+        "has_newline_tactics": tactic_lines >= 2,
+        "n_tactics": len(unique_tactics),
+        "tactics": unique_tactics,
+        "tactic_lines": tactic_lines,
+    }
+
+
+def analysis_tactic_composition(checkpoints, all_theorems):
+    print("\n" + "=" * 72)
+    print("ANALYSIS 9: Tactic composition detection")
+    print("=" * 72)
+
+    print(f"\n{'Checkpoint':<12}  {'N_pass':<8}  {'Has_semi':<10}  {'Multi_line':<12}  {'Multi_tactic':<14}  {'Avg_tactics':<12}")
+    print("-" * 76)
+
+    for step, records_by_thm in checkpoints:
+        successes = []
+        for tid in all_theorems:
+            for rec in records_by_thm.get(tid, []):
+                if rec["success"]:
+                    successes.append(rec)
+
+        n_pass = len(successes)
+        n_semi = 0
+        n_multi_line = 0
+        n_multi_tactic = 0
+        tactic_counts = []
+
+        for rec in successes:
+            comp = detect_composition(rec["proof_text"])
+            if comp["has_semicolon"]:
+                n_semi += 1
+            if comp["has_newline_tactics"]:
+                n_multi_line += 1
+            if comp["n_tactics"] >= 2:
+                n_multi_tactic += 1
+            tactic_counts.append(comp["n_tactics"])
+
+        avg_tac = np.mean(tactic_counts) if tactic_counts else 0
+
+        print(f"C{step:04d}        {n_pass:<8d}  {n_semi:<10d}  {n_multi_line:<12d}  {n_multi_tactic:<14d}  {avg_tac:<12.2f}")
+
+    print(f"\nComposition examples from C0150 (multi-tactic successes):")
+    for step, records_by_thm in checkpoints:
+        if step != 150:
+            continue
+        count = 0
+        for tid in sorted(all_theorems):
+            for rec in records_by_thm.get(tid, []):
+                if rec["success"]:
+                    comp = detect_composition(rec["proof_text"])
+                    if comp["n_tactics"] >= 2:
+                        tid_disp = tid[:50]
+                        tacs = " -> ".join(comp["tactics"][:5])
+                        print(f"  {tid_disp:<52}  tactics: {tacs}")
+                        count += 1
+                        break
+            if count >= 15:
+                break
+
+    print(f"\nSummary: Is tactic composition emerging naturally?")
+    final_step = checkpoints[-1]
+    successes = []
+    for tid in all_theorems:
+        for rec in final_step[1].get(tid, []):
+            if rec["success"]:
+                successes.append(rec)
+    n_pass = len(successes)
+    n_comp = sum(1 for rec in successes if detect_composition(rec["proof_text"])["n_tactics"] >= 2)
+    pct = 100 * n_comp / n_pass if n_pass > 0 else 0
+    print(f"  At final checkpoint: {n_comp}/{n_pass} ({pct:.1f}%) successful proofs use 2+ tactics")
+    if pct > 30:
+        print(f"  -> Model is learning composition naturally. Level 1-2 curriculum may ACCELERATE but is not strictly required.")
+    else:
+        print(f"  -> Model relies primarily on single tactics. Level 1-2 curriculum is ESSENTIAL for Tier 4.")
+
+
+# ---------------------------------------------------------------------------
+# Analysis 10: Regression analysis
+# ---------------------------------------------------------------------------
+
+def analysis_regression(checkpoints, all_theorems):
+    print("\n" + "=" * 72)
+    print("ANALYSIS 10: Full regression analysis")
+    print("=" * 72)
+
+    solved = {}
+    for tid in all_theorems:
+        solved[tid] = []
+        for step, records_by_thm in checkpoints:
+            recs = records_by_thm.get(tid, [])
+            solved[tid].append(any(r["success"] for r in recs))
+
+    print(f"\n{'Checkpoint':<12}  {'Solved':<8}  {'New':<6}  {'Lost':<6}  {'Retained':<10}  {'Regression_rate':<16}  {'Cumulative_ever':<16}")
+    print("-" * 86)
+
+    ever_solved = set()
+    prev_solved = set()
+    for idx, (step, _) in enumerate(checkpoints):
+        curr_solved = {tid for tid in all_theorems if solved[tid][idx]}
+        new = curr_solved - prev_solved
+        lost = prev_solved - curr_solved
+        retained = prev_solved & curr_solved
+        ever_solved |= curr_solved
+
+        reg_rate = len(lost) / len(prev_solved) if prev_solved else 0.0
+        print(f"C{step:04d}        {len(curr_solved):<8d}  {len(new):<6d}  {len(lost):<6d}  {len(retained):<10d}  {reg_rate:.3f}            {len(ever_solved)}")
+
+        prev_solved = curr_solved
+
+    print(f"\nTheorems that regressed (solved then lost) at any checkpoint:")
+    regression_events = []
+    for tid in all_theorems:
+        for idx in range(1, len(checkpoints)):
+            if solved[tid][idx - 1] and not solved[tid][idx]:
+                regression_events.append((tid, checkpoints[idx - 1][0], checkpoints[idx][0]))
+
+    if regression_events:
+        for tid, from_step, to_step in regression_events:
+            tid_disp = tid[:55]
+            final_solved = solved[tid][-1]
+            status = "RECOVERED" if final_solved else "STILL LOST"
+            print(f"  {tid_disp:<57}  lost C{from_step:04d}->C{to_step:04d}  [{status}]")
+    else:
+        print("  None!")
+
+    print(f"\nConsolidation trajectory:")
+    for idx in range(1, len(checkpoints)):
+        step = checkpoints[idx][0]
+        curr = {tid for tid in all_theorems if solved[tid][idx]}
+        prev = {tid for tid in all_theorems if solved[tid][idx - 1]}
+        if prev:
+            retention = len(curr & prev) / len(prev)
+            print(f"  C{checkpoints[idx-1][0]:04d}->C{step:04d}: {retention:.1%} retention ({len(curr & prev)}/{len(prev)} retained)")
+
+
+# ---------------------------------------------------------------------------
+# Analysis 12: Sigmoid scaling law fit
+# ---------------------------------------------------------------------------
+
+def sigmoid(x, L, k, x0, b):
+    return L / (1.0 + np.exp(-k * (x - x0))) + b
+
+
+def analysis_sigmoid_fit(checkpoints):
+    print("\n" + "=" * 72)
+    print("ANALYSIS 12: Sigmoid scaling law fit")
+    print("=" * 72)
+
+    steps_arr = np.array([c[0] for c in checkpoints], dtype=float)
+    pass_rates = []
+    for step, records_by_thm in checkpoints:
+        total = sum(len(recs) for recs in records_by_thm.values())
+        passing = sum(sum(1 for r in recs if r["success"]) for recs in records_by_thm.values())
+        pass_rates.append(passing / total if total > 0 else 0.0)
+    rates_arr = np.array(pass_rates) * 100
+
+    print(f"\nInput data:")
+    for s, r in zip(steps_arr, rates_arr):
+        print(f"  Step {s:6.0f}: {r:6.2f}%")
+
+    try:
+        p0 = [80.0, 0.05, 50.0, 2.0]
+        bounds = ([0, 0.001, 0, -10], [100, 1.0, 300, 30])
+        popt, pcov = curve_fit(sigmoid, steps_arr, rates_arr, p0=p0, bounds=bounds, maxfev=10000)
+        L, k, x0, b = popt
+        perr = np.sqrt(np.diag(pcov))
+
+        residuals = rates_arr - sigmoid(steps_arr, *popt)
+        rmse = np.sqrt(np.mean(residuals**2))
+
+        print(f"\nSigmoid fit: y = {L:.2f} / (1 + exp(-{k:.4f} * (x - {x0:.2f}))) + {b:.2f}")
+        print(f"  Asymptote (L + b): {L + b:.2f}%")
+        print(f"  Growth rate (k): {k:.4f}")
+        print(f"  Inflection point (x0): step {x0:.1f}")
+        print(f"  RMSE: {rmse:.2f}pp")
+        print(f"  Parameter uncertainties: L+-{perr[0]:.2f}, k+-{perr[1]:.4f}, x0+-{perr[2]:.2f}, b+-{perr[3]:.2f}")
+
+        print(f"\nExtrapolations:")
+        for target_step in [200, 250, 300, 500]:
+            predicted = sigmoid(target_step, *popt)
+            print(f"  Step {target_step}: {predicted:.2f}%")
+
+        for target_pct in [80, 85, 90, 95]:
+            target_val = target_pct - b
+            if target_val <= 0 or target_val >= L:
+                print(f"  {target_pct}% unreachable (asymptote = {L + b:.2f}%)")
+            else:
+                x_target = x0 - np.log(L / target_val - 1) / k
+                print(f"  {target_pct}%: ~step {x_target:.0f}")
+
+    except Exception as e:
+        print(f"\nSigmoid fit failed: {e}")
+        if len(steps_arr) >= 3:
+            coeffs = np.polyfit(steps_arr[-3:], rates_arr[-3:], 1)
+            for target_step in [200, 250, 300]:
+                predicted = np.polyval(coeffs, target_step)
+                print(f"  Step {target_step}: {predicted:.2f}% (linear)")
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data-dir", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    args = parser.parse_args()
+
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    checkpoint_entries = find_checkpoints(args.data_dir)
+    print(f"Found {len(checkpoint_entries)} checkpoints")
+
+    checkpoints = []
+    all_theorems_set = set()
+    for step, chk_dir in checkpoint_entries:
+        records = load_checkpoint(chk_dir)
+        records_by_thm = defaultdict(list)
+        for rec in records:
+            tid = theorem_id(rec)
+            records_by_thm[tid].append(rec)
+            all_theorems_set.add(tid)
+        n_pass = sum(1 for r in records if r["success"])
+        print(f"  C{step:04d}: {len(records)} trajectories, {n_pass} passing")
+        checkpoints.append((step, dict(records_by_thm)))
+
+    all_theorems = sorted(all_theorems_set)
+    print(f"Total unique theorems: {len(all_theorems)}")
+
+    breadth, depth_ratios = analysis_temperature_breadth(checkpoints, all_theorems)
+    tactic_matrix = analysis_tactic_distribution(checkpoints, all_theorems)
+    analysis_length_ratio(checkpoints, all_theorems)
+    analysis_tactic_composition(checkpoints, all_theorems)
+    analysis_regression(checkpoints, all_theorems)
+    analysis_sigmoid_fit(checkpoints)
+
+    summary = {
+        "depth_ratios": depth_ratios,
+        "tactic_matrix": {str(k): v for k, v in tactic_matrix.items()},
+    }
+    out_path = args.output_dir / "extended_analyses_summary.json"
+    with open(out_path, "w") as fh:
+        json.dump(summary, fh, indent=2)
+    print(f"\nJSON summary saved: {out_path}")
+    print("\nAll extended analyses complete.")
+
+
+if __name__ == "__main__":
+    main()

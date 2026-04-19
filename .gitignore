@@ -1,0 +1,26 @@
+target/
+Cargo.lock
+.venv/
+.claude/
+.tldr/
+.tldrignore
+__pycache__/
+*.pyc
+firebase-debug.log
+results.json
+.DS_Store
+
+# Large training data (not tracked — download from RunPod)
+grpo_lean_run/
+grpo_lean_run_final/
+grpo_lean_final/
+grpo_run/
+cgle_data/
+grpo_lean_complete.log
+
+# Build artifacts
+python/proofforge.egg-info/
+python/uv.lock
+
+# Temp test output
+cgle_analysis_results/extended_split_test/

@@ -1,0 +1,73 @@
+{
+  "depth_ratios": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.14285714285714285,
+    0.23076923076923078,
+    0.34146341463414637,
+    0.6046511627906976
+  ],
+  "tactic_matrix": {
+    "0": {
+      "rfl": 1,
+      "simp": 2
+    },
+    "5": {
+      "trivial": 2,
+      "rfl": 2,
+      "<unknown>": 3,
+      "exact": 1,
+      "rw": 1,
+      "simp": 2,
+      "intro": 1
+    },
+    "10": {
+      "rfl": 6,
+      "<unknown>": 3,
+      "trivial": 1,
+      "simp": 4
+    },
+    "20": {
+      "simp": 3,
+      "exact": 2,
+      "rfl": 4,
+      "<unknown>": 2,
+      "rw": 1
+    },
+    "30": {
+      "trivial": 1,
+      "rfl": 2,
+      "simp": 9,
+      "<unknown>": 1
+    },
+    "50": {
+      "rfl": 7,
+      "simp": 22,
+      "<unknown>": 2,
+      "trivial": 2,
+      "exact": 1
+    },
+    "75": {
+      "simp": 56,
+      "rfl": 3,
+      "trivial": 3,
+      "<unknown>": 2
+    },
+    "100": {
+      "simp": 86,
+      "rfl": 1,
+      "decide": 1,
+      "rw": 2,
+      "<unknown>": 1
+    },
+    "150": {
+      "trivial": 2,
+      "simp": 99,
+      "rfl": 6,
+      "decide": 1
+    }
+  }
+}

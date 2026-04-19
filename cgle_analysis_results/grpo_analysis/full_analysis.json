@@ -1,0 +1,197 @@
+{
+  "checkpoint_000": {
+    "step": 0,
+    "n_trajectories": 150,
+    "d_int_mean": 6.129663540717429,
+    "d_int_median": 5.266205927695747,
+    "mean_period": 6.546099290780142,
+    "locked_theorems": 18,
+    "n_valid_periods": 141,
+    "max_freq_stability": 0.7119966745376587,
+    "mean_freq_stability": 0.25570300221443176,
+    "modes_above_05": 7,
+    "separation_acc": 0.9733333333333334,
+    "chance_level": 0.9466666666666667,
+    "success_count": 142,
+    "fail_count": 8,
+    "pass_rate": 0.9466666666666667,
+    "h1_significant": 10,
+    "h2_significant": 0,
+    "tda": {
+      "10": {
+        "h1_sig": 7,
+        "h2_sig": 1,
+        "h1_total": 41,
+        "h2_total": 6
+      },
+      "20": {
+        "h1_sig": 10,
+        "h2_sig": 0,
+        "h1_total": 40,
+        "h2_total": 5
+      },
+      "50": {
+        "h1_sig": 10,
+        "h2_sig": 0,
+        "h1_total": 40,
+        "h2_total": 4
+      }
+    }
+  },
+  "checkpoint_005": {
+    "step": 5,
+    "n_trajectories": 150,
+    "d_int_mean": 5.813119728861691,
+    "d_int_median": 5.070832087293441,
+    "mean_period": 6.330985915492958,
+    "locked_theorems": 18,
+    "n_valid_periods": 142,
+    "max_freq_stability": 0.7119937539100647,
+    "mean_freq_stability": 0.2714822590351105,
+    "modes_above_05": 5,
+    "separation_acc": 0.9800000000000001,
+    "chance_level": 0.9466666666666667,
+    "success_count": 142,
+    "fail_count": 8,
+    "pass_rate": 0.9466666666666667,
+    "h1_significant": 13,
+    "h2_significant": 1,
+    "tda": {
+      "10": {
+        "h1_sig": 11,
+        "h2_sig": 1,
+        "h1_total": 42,
+        "h2_total": 4
+      },
+      "20": {
+        "h1_sig": 13,
+        "h2_sig": 1,
+        "h1_total": 44,
+        "h2_total": 4
+      },
+      "50": {
+        "h1_sig": 14,
+        "h2_sig": 0,
+        "h1_total": 42,
+        "h2_total": 7
+      }
+    }
+  },
+  "checkpoint_010": {
+    "step": 10,
+    "n_trajectories": 150,
+    "d_int_mean": 6.089091145274825,
+    "d_int_median": 5.331276969497018,
+    "mean_period": 6.695652173913044,
+    "locked_theorems": 20,
+    "n_valid_periods": 138,
+    "max_freq_stability": 0.7116806507110596,
+    "mean_freq_stability": 0.2560771107673645,
+    "modes_above_05": 4,
+    "separation_acc": 0.9800000000000001,
+    "chance_level": 0.94,
+    "success_count": 141,
+    "fail_count": 9,
+    "pass_rate": 0.94,
+    "h1_significant": 10,
+    "h2_significant": 1,
+    "tda": {
+      "10": {
+        "h1_sig": 11,
+        "h2_sig": 1,
+        "h1_total": 43,
+        "h2_total": 6
+      },
+      "20": {
+        "h1_sig": 10,
+        "h2_sig": 1,
+        "h1_total": 43,
+        "h2_total": 6
+      },
+      "50": {
+        "h1_sig": 10,
+        "h2_sig": 2,
+        "h1_total": 38,
+        "h2_total": 7
+      }
+    }
+  },
+  "checkpoint_020": {
+    "step": 20,
+    "n_trajectories": 150,
+    "d_int_mean": 6.162830738281734,
+    "d_int_median": 5.079450888025695,
+    "mean_period": 6.7481481481481485,
+    "locked_theorems": 18,
+    "n_valid_periods": 135,
+    "max_freq_stability": 0.7120581865310669,
+    "mean_freq_stability": 0.2535216510295868,
+    "modes_above_05": 4,
+    "separation_acc": 0.9866666666666667,
+    "chance_level": 0.9666666666666667,
+    "success_count": 145,
+    "fail_count": 5,
+    "pass_rate": 0.9666666666666667,
+    "h1_significant": 14,
+    "h2_significant": 2,
+    "tda": {
+      "10": {
+        "h1_sig": 9,
+        "h2_sig": 0,
+        "h1_total": 38,
+        "h2_total": 5
+      },
+      "20": {
+        "h1_sig": 14,
+        "h2_sig": 2,
+        "h1_total": 42,
+        "h2_total": 6
+      },
+      "50": {
+        "h1_sig": 16,
+        "h2_sig": 0,
+        "h1_total": 43,
+        "h2_total": 2
+      }
+    }
+  },
+  "checkpoint_030": {
+    "step": 30,
+    "n_trajectories": 150,
+    "d_int_mean": 6.028356398350642,
+    "d_int_median": 5.14087797645111,
+    "mean_period": 6.482014388489208,
+    "locked_theorems": 18,
+    "n_valid_periods": 139,
+    "max_freq_stability": 0.5639482736587524,
+    "mean_freq_stability": 0.26611053943634033,
+    "modes_above_05": 5,
+    "separation_acc": 0.9866666666666667,
+    "chance_level": 0.98,
+    "success_count": 147,
+    "fail_count": 3,
+    "pass_rate": 0.98,
+    "h1_significant": 9,
+    "h2_significant": 3,
+    "tda": {
+      "10": {
+        "h1_sig": 10,
+        "h2_sig": 1,
+        "h1_total": 33,
+        "h2_total": 7
+      },
+      "20": {
+        "h1_sig": 9,
+        "h2_sig": 3,
+        "h1_total": 39,
+        "h2_total": 10
+      },
+      "50": {
+        "h1_sig": 6,
+        "h2_sig": 1,
+        "h1_total": 40,
+        "h2_total": 7
+      }
+    }
+  }
+}

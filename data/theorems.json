@@ -1,0 +1,80 @@
+{
+  "description": "ProofForge toy experiment theorem dataset — Lean 4 stdlib only (no Mathlib imports needed)",
+  "version": "0.1.0",
+  "tiers": [
+    {
+      "name": "trivial",
+      "description": "One-tactic proofs: rfl, trivial, decide",
+      "theorems": [
+        {"id": "t1_01", "statement": "theorem pf_t1_01 : True := by", "known_proof": "trivial", "difficulty": 1},
+        {"id": "t1_02", "statement": "theorem pf_t1_02 : 1 = 1 := by", "known_proof": "rfl", "difficulty": 1},
+        {"id": "t1_03", "statement": "theorem pf_t1_03 : 2 + 3 = 5 := by", "known_proof": "decide", "difficulty": 1},
+        {"id": "t1_04", "statement": "theorem pf_t1_04 : 10 * 10 = 100 := by", "known_proof": "decide", "difficulty": 1},
+        {"id": "t1_05", "statement": "theorem pf_t1_05 : 0 = 0 := by", "known_proof": "rfl", "difficulty": 1},
+        {"id": "t1_06", "statement": "theorem pf_t1_06 : Nat.succ 0 = 1 := by", "known_proof": "rfl", "difficulty": 1},
+        {"id": "t1_07", "statement": "theorem pf_t1_07 : (3 : Nat) < 5 := by", "known_proof": "decide", "difficulty": 1},
+        {"id": "t1_08", "statement": "theorem pf_t1_08 : (2 : Nat) ≤ 2 := by", "known_proof": "decide", "difficulty": 1},
+        {"id": "t1_09", "statement": "theorem pf_t1_09 : ¬ False := by", "known_proof": "trivial", "difficulty": 1},
+        {"id": "t1_10", "statement": "theorem pf_t1_10 : True ∧ True := by", "known_proof": "exact ⟨trivial, trivial⟩", "difficulty": 1},
+        {"id": "t1_11", "statement": "theorem pf_t1_11 : True ∨ False := by", "known_proof": "left; trivial", "difficulty": 1},
+        {"id": "t1_12", "statement": "theorem pf_t1_12 : 7 - 3 = 4 := by", "known_proof": "decide", "difficulty": 1},
+        {"id": "t1_13", "statement": "theorem pf_t1_13 : Nat.zero = 0 := by", "known_proof": "rfl", "difficulty": 1},
+        {"id": "t1_14", "statement": "theorem pf_t1_14 : (1 + 2) * 3 = 9 := by", "known_proof": "decide", "difficulty": 1},
+        {"id": "t1_15", "statement": "theorem pf_t1_15 : 2 ^ 3 = 8 := by", "known_proof": "decide", "difficulty": 1}
+      ]
+    },
+    {
+      "name": "simple_tactic",
+      "description": "Needs simp, omega, or intro + basic reasoning",
+      "theorems": [
+        {"id": "t2_01", "statement": "theorem pf_t2_01 (n : Nat) : n = n := by", "known_proof": "rfl", "difficulty": 2},
+        {"id": "t2_02", "statement": "theorem pf_t2_02 (n : Nat) : 0 + n = n := by", "known_proof": "simp", "difficulty": 2},
+        {"id": "t2_03", "statement": "theorem pf_t2_03 (n : Nat) : n + 0 = n := by", "known_proof": "simp", "difficulty": 2},
+        {"id": "t2_04", "statement": "theorem pf_t2_04 (a b : Nat) : a + b = b + a := by", "known_proof": "omega", "difficulty": 2},
+        {"id": "t2_05", "statement": "theorem pf_t2_05 (n : Nat) : n * 1 = n := by", "known_proof": "simp", "difficulty": 2},
+        {"id": "t2_06", "statement": "theorem pf_t2_06 (n : Nat) : 1 * n = n := by", "known_proof": "simp", "difficulty": 2},
+        {"id": "t2_07", "statement": "theorem pf_t2_07 (p : Prop) : p → p := by", "known_proof": "intro h; exact h", "difficulty": 2},
+        {"id": "t2_08", "statement": "theorem pf_t2_08 (p q : Prop) : p → q → p ∧ q := by", "known_proof": "intro hp hq; exact ⟨hp, hq⟩", "difficulty": 2},
+        {"id": "t2_09", "statement": "theorem pf_t2_09 (p q : Prop) : p ∧ q → p := by", "known_proof": "intro h; exact h.1", "difficulty": 2},
+        {"id": "t2_10", "statement": "theorem pf_t2_10 (p q : Prop) : p ∧ q → q := by", "known_proof": "intro h; exact h.2", "difficulty": 2},
+        {"id": "t2_11", "statement": "theorem pf_t2_11 (a b c : Nat) : a + b + c = a + (b + c) := by", "known_proof": "omega", "difficulty": 2},
+        {"id": "t2_12", "statement": "theorem pf_t2_12 (n : Nat) : n * 0 = 0 := by", "known_proof": "simp", "difficulty": 2},
+        {"id": "t2_13", "statement": "theorem pf_t2_13 (p : Prop) : p → ¬¬p := by", "known_proof": "intro h hn; exact hn h", "difficulty": 2},
+        {"id": "t2_14", "statement": "theorem pf_t2_14 (n m : Nat) : n ≤ n + m := by", "known_proof": "omega", "difficulty": 2},
+        {"id": "t2_15", "statement": "theorem pf_t2_15 (n : Nat) : 0 ≤ n := by", "known_proof": "omega", "difficulty": 2}
+      ]
+    },
+    {
+      "name": "induction",
+      "description": "Requires structural induction on Nat or List",
+      "theorems": [
+        {"id": "t3_01", "statement": "theorem pf_t3_01 (n : Nat) : n + 0 = n := by", "known_proof": "induction n with\n| zero => rfl\n| succ n ih => simp [Nat.succ_add, ih]", "difficulty": 3},
+        {"id": "t3_02", "statement": "theorem pf_t3_02 : ∀ n : Nat, 0 + n = n := by", "known_proof": "intro n; induction n with\n| zero => rfl\n| succ n ih => simp [Nat.succ_add, ih]", "difficulty": 3},
+        {"id": "t3_03", "statement": "theorem pf_t3_03 (l : List Nat) : l.length ≥ 0 := by", "known_proof": "omega", "difficulty": 3},
+        {"id": "t3_04", "statement": "theorem pf_t3_04 (l : List α) : [].append l = l := by", "known_proof": "simp", "difficulty": 3},
+        {"id": "t3_05", "statement": "theorem pf_t3_05 (n : Nat) : n + Nat.succ 0 = Nat.succ n := by", "known_proof": "omega", "difficulty": 3},
+        {"id": "t3_06", "statement": "theorem pf_t3_06 (n : Nat) : Nat.succ n ≠ 0 := by", "known_proof": "intro h; exact absurd h (Nat.succ_ne_zero n)", "difficulty": 3},
+        {"id": "t3_07", "statement": "theorem pf_t3_07 (n : Nat) : n + 1 = Nat.succ n := by", "known_proof": "rfl", "difficulty": 3},
+        {"id": "t3_08", "statement": "theorem pf_t3_08 (a b : Nat) : a + Nat.succ b = Nat.succ (a + b) := by", "known_proof": "omega", "difficulty": 3},
+        {"id": "t3_09", "statement": "theorem pf_t3_09 (n : Nat) : n * 2 = n + n := by", "known_proof": "omega", "difficulty": 3},
+        {"id": "t3_10", "statement": "theorem pf_t3_10 (a b c : Nat) : (a + b) * c = a * c + b * c := by", "known_proof": "simp [Nat.add_mul]", "difficulty": 3}
+      ]
+    },
+    {
+      "name": "multi_step",
+      "description": "Requires combining multiple tactics or term-mode proofs",
+      "theorems": [
+        {"id": "t4_01", "statement": "theorem pf_t4_01 (p q r : Prop) : (p → q) → (q → r) → p → r := by", "known_proof": "intro hpq hqr hp; exact hqr (hpq hp)", "difficulty": 4},
+        {"id": "t4_02", "statement": "theorem pf_t4_02 (p q : Prop) : (p ∧ q) → (q ∧ p) := by", "known_proof": "intro ⟨hp, hq⟩; exact ⟨hq, hp⟩", "difficulty": 4},
+        {"id": "t4_03", "statement": "theorem pf_t4_03 (p q : Prop) : p ∨ q → q ∨ p := by", "known_proof": "intro h; cases h with\n| inl hp => right; exact hp\n| inr hq => left; exact hq", "difficulty": 4},
+        {"id": "t4_04", "statement": "theorem pf_t4_04 (p q r : Prop) : p ∧ (q ∨ r) → (p ∧ q) ∨ (p ∧ r) := by", "known_proof": "intro ⟨hp, hqr⟩; cases hqr with\n| inl hq => left; exact ⟨hp, hq⟩\n| inr hr => right; exact ⟨hp, hr⟩", "difficulty": 4},
+        {"id": "t4_05", "statement": "theorem pf_t4_05 (n m : Nat) : n ≤ m → n ≤ m + 1 := by", "known_proof": "intro h; omega", "difficulty": 4},
+        {"id": "t4_06", "statement": "theorem pf_t4_06 (n : Nat) : n = 0 ∨ ∃ m, n = Nat.succ m := by", "known_proof": "cases n with\n| zero => left; rfl\n| succ m => right; exact ⟨m, rfl⟩", "difficulty": 4},
+        {"id": "t4_07", "statement": "theorem pf_t4_07 (p : Prop) : ¬(p ∧ ¬p) := by", "known_proof": "intro ⟨hp, hnp⟩; exact hnp hp", "difficulty": 4},
+        {"id": "t4_08", "statement": "theorem pf_t4_08 (a b : Nat) : a ≤ b → b ≤ a → a = b := by", "known_proof": "intro h1 h2; omega", "difficulty": 4},
+        {"id": "t4_09", "statement": "theorem pf_t4_09 (f : α → β) (a b : α) : a = b → f a = f b := by", "known_proof": "intro h; rw [h]", "difficulty": 4},
+        {"id": "t4_10", "statement": "theorem pf_t4_10 (p q : Prop) : ¬(p ∨ q) → ¬p ∧ ¬q := by", "known_proof": "intro h; exact ⟨fun hp => h (Or.inl hp), fun hq => h (Or.inr hq)⟩", "difficulty": 4}
+      ]
+    }
+  ]
+}

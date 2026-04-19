@@ -1,0 +1,4882 @@
+{
+  "description": "SOS Formalization Proof Dependency Graph",
+  "generated": "2026-03-18",
+  "stats": {
+    "total_declarations": 232,
+    "total_edges": 500,
+    "modules": {
+      "Basic": 82,
+      "AReaL": 19,
+      "StochasticSOS": 21,
+      "StochasticRates": 50,
+      "ProofForge": 38,
+      "PowerLaw": 22
+    },
+    "by_kind": {
+      "def": 65,
+      "theorem": 132,
+      "axiom": 7,
+      "structure": 10,
+      "instance": 5,
+      "lemma": 12,
+      "abbrev": 1
+    }
+  },
+  "nodes": [
+    {
+      "id": "grpoSOS",
+      "label": "grpoSOS",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 58,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "grpo_convergence",
+      "label": "grpo_convergence",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 76,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "grpo_rate",
+      "label": "grpo_rate",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 92,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedGrpoSOS",
+      "label": "constrainedGrpoSOS",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 110,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrained_grpo_convergence",
+      "label": "constrained_grpo_convergence",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 120,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.asyncLift",
+      "label": "SOS.asyncLift",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 165,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.asyncLift_convergence",
+      "label": "SOS.asyncLift_convergence",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 178,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.asyncLift_constraint_preserved",
+      "label": "SOS.asyncLift_constraint_preserved",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 188,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "asyncGrpoSOS",
+      "label": "asyncGrpoSOS",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 202,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "asyncGrpo_convergence",
+      "label": "asyncGrpo_convergence",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 215,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "asyncGrpo_rate",
+      "label": "asyncGrpo_rate",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 235,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "DecoupledPPO_SOS",
+      "label": "DecoupledPPO_SOS",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 284,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "DecoupledPPO_convergence",
+      "label": "DecoupledPPO_convergence",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 288,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "AsyncDecoupledPPO_SOS",
+      "label": "AsyncDecoupledPPO_SOS",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 298,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "AsyncDecoupledPPO_convergence",
+      "label": "AsyncDecoupledPPO_convergence",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 303,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "quadruple_safety_lipschitz",
+      "label": "quadruple_safety_lipschitz",
+      "module": "AReaL",
+      "kind": "theorem",
+      "line": 337,
+      "color": "#FF9800",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "PPO_to_GRPO_morphism",
+      "label": "PPO_to_GRPO_morphism",
+      "module": "AReaL",
+      "kind": "axiom",
+      "line": 367,
+      "color": "#FF9800",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "GRPO_to_Autoresearch_morphism",
+      "label": "GRPO_to_Autoresearch_morphism",
+      "module": "AReaL",
+      "kind": "axiom",
+      "line": 381,
+      "color": "#FF9800",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "PPO_to_ECEF_via_GRPO",
+      "label": "PPO_to_ECEF_via_GRPO",
+      "module": "AReaL",
+      "kind": "def",
+      "line": 399,
+      "color": "#FF9800",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS",
+      "label": "SOS",
+      "module": "Basic",
+      "kind": "structure",
+      "line": 24,
+      "color": "#4CAF50",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "(S",
+      "label": "(S",
+      "module": "Basic",
+      "kind": "instance",
+      "line": 49,
+      "color": "#4CAF50",
+      "shape": "pentagon",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.orbit",
+      "label": "SOS.orbit",
+      "module": "Basic",
+      "kind": "def",
+      "line": 54,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.orbit_le_succ",
+      "label": "SOS.orbit_le_succ",
+      "module": "Basic",
+      "kind": "lemma",
+      "line": 58,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.orbit_monotone",
+      "label": "SOS.orbit_monotone",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 64,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.orbit_bddAbove",
+      "label": "SOS.orbit_bddAbove",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 69,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.convergence",
+      "label": "SOS.convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 78,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.constraint_along_orbit",
+      "label": "SOS.constraint_along_orbit",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 83,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.orbit_bounded",
+      "label": "SOS.orbit_bounded",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 92,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.orbit_le_limit",
+      "label": "SOS.orbit_le_limit",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 108,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.improvement_vanishes",
+      "label": "SOS.improvement_vanishes",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 116,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.constraintLift",
+      "label": "SOS.constraintLift",
+      "module": "Basic",
+      "kind": "def",
+      "line": 136,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.constraintLift_convergence",
+      "label": "SOS.constraintLift_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 161,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.geometric_rate",
+      "label": "SOS.geometric_rate",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 179,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.IsBasin",
+      "label": "SOS.IsBasin",
+      "module": "Basic",
+      "kind": "def",
+      "line": 211,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.iterate_mem_basin",
+      "label": "SOS.iterate_mem_basin",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 216,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.orbit_is_basin",
+      "label": "SOS.orbit_is_basin",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 227,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.local_geometric_rate",
+      "label": "SOS.local_geometric_rate",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 236,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.geometric_rate_of_local",
+      "label": "SOS.geometric_rate_of_local",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 261,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism",
+      "label": "SOS.Morphism",
+      "module": "Basic",
+      "kind": "structure",
+      "line": 276,
+      "color": "#4CAF50",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.id",
+      "label": "SOS.Morphism.id",
+      "module": "Basic",
+      "kind": "def",
+      "line": 291,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.comp",
+      "label": "SOS.Morphism.comp",
+      "module": "Basic",
+      "kind": "def",
+      "line": 300,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.iterate_commute",
+      "label": "SOS.Morphism.iterate_commute",
+      "module": "Basic",
+      "kind": "lemma",
+      "line": 319,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.orbit_eq",
+      "label": "SOS.Morphism.orbit_eq",
+      "module": "Basic",
+      "kind": "lemma",
+      "line": 330,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.limit_bound",
+      "label": "SOS.Morphism.limit_bound",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 342,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.preserves_convergence_limit",
+      "label": "SOS.Morphism.preserves_convergence_limit",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 357,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.ext'",
+      "label": "SOS.Morphism.ext'",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 368,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.id_comp",
+      "label": "SOS.Morphism.id_comp",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 377,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.comp_id",
+      "label": "SOS.Morphism.comp_id",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 382,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.comp_assoc",
+      "label": "SOS.Morphism.comp_assoc",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 387,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": ":",
+      "label": ":",
+      "module": "Basic",
+      "kind": "instance",
+      "line": 397,
+      "color": "#4CAF50",
+      "shape": "pentagon",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.limit_compat",
+      "label": "SOS.Morphism.limit_compat",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 407,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.rate_transfer",
+      "label": "SOS.Morphism.rate_transfer",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 422,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.local_rate_transfer",
+      "label": "SOS.Morphism.local_rate_transfer",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 449,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism",
+      "label": "SOS.LaxMorphism",
+      "module": "Basic",
+      "kind": "structure",
+      "line": 494,
+      "color": "#4CAF50",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.LaxMorphism.ext'",
+      "label": "SOS.LaxMorphism.ext'",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 512,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism.id",
+      "label": "SOS.LaxMorphism.id",
+      "module": "Basic",
+      "kind": "def",
+      "line": 521,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.LaxMorphism.comp",
+      "label": "SOS.LaxMorphism.comp",
+      "module": "Basic",
+      "kind": "def",
+      "line": 537,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.LaxMorphism.id_comp",
+      "label": "SOS.LaxMorphism.id_comp",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 559,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism.comp_id",
+      "label": "SOS.LaxMorphism.comp_id",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 564,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism.comp_assoc",
+      "label": "SOS.LaxMorphism.comp_assoc",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 569,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.toLaxMorphism",
+      "label": "SOS.Morphism.toLaxMorphism",
+      "module": "Basic",
+      "kind": "def",
+      "line": 578,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.Morphism.toLaxMorphism_comp",
+      "label": "SOS.Morphism.toLaxMorphism_comp",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 589,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.toLaxMorphism_id",
+      "label": "SOS.Morphism.toLaxMorphism_id",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 595,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism.lax_image_convergence",
+      "label": "SOS.LaxMorphism.lax_image_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 604,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism.lax_limit_bound",
+      "label": "SOS.LaxMorphism.lax_limit_bound",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 617,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "PPO_is_SOS",
+      "label": "PPO_is_SOS",
+      "module": "Basic",
+      "kind": "axiom",
+      "line": 638,
+      "color": "#4CAF50",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "PPO_convergence",
+      "label": "PPO_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 641,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "keepDiscard",
+      "label": "keepDiscard",
+      "module": "Basic",
+      "kind": "def",
+      "line": 656,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "keepDiscard_monotone_improvement",
+      "label": "keepDiscard_monotone_improvement",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 661,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "keepDiscard_bounded",
+      "label": "keepDiscard_bounded",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 669,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "autoresearchSOS",
+      "label": "autoresearchSOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 682,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "autoresearch_convergence",
+      "label": "autoresearch_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 699,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedKeepDiscard",
+      "label": "constrainedKeepDiscard",
+      "module": "Basic",
+      "kind": "def",
+      "line": 723,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrainedKeepDiscard_monotone",
+      "label": "constrainedKeepDiscard_monotone",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 729,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedKeepDiscard_bounded",
+      "label": "constrainedKeepDiscard_bounded",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 738,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedKeepDiscard_constraint",
+      "label": "constrainedKeepDiscard_constraint",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 749,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedAutoresearchSOS",
+      "label": "constrainedAutoresearchSOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 761,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrained_autoresearch_convergence",
+      "label": "constrained_autoresearch_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 779,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "emSOS",
+      "label": "emSOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 808,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "em_convergence",
+      "label": "em_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 827,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedEmSOS",
+      "label": "constrainedEmSOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 842,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrained_em_convergence",
+      "label": "constrained_em_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 853,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "exactPISOS",
+      "label": "exactPISOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 883,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "exact_pi_convergence",
+      "label": "exact_pi_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 902,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "safePISOS",
+      "label": "safePISOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 928,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "safe_pi_convergence",
+      "label": "safe_pi_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 939,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "ecefSOS",
+      "label": "ecefSOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 966,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "ecef_convergence",
+      "label": "ecef_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 985,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedEcefSOS",
+      "label": "constrainedEcefSOS",
+      "module": "Basic",
+      "kind": "def",
+      "line": 1000,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrained_ecef_convergence",
+      "label": "constrained_ecef_convergence",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 1011,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "PPO_to_Autoresearch_morphism",
+      "label": "PPO_to_Autoresearch_morphism",
+      "module": "Basic",
+      "kind": "axiom",
+      "line": 1042,
+      "color": "#4CAF50",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "Autoresearch_to_ECEF_morphism",
+      "label": "Autoresearch_to_ECEF_morphism",
+      "module": "Basic",
+      "kind": "axiom",
+      "line": 1057,
+      "color": "#4CAF50",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "PPO_to_ECEF_morphism",
+      "label": "PPO_to_ECEF_morphism",
+      "module": "Basic",
+      "kind": "def",
+      "line": 1079,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "Autoresearch_to_ECEF_lax_morphism",
+      "label": "Autoresearch_to_ECEF_lax_morphism",
+      "module": "Basic",
+      "kind": "def",
+      "line": 1115,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "PPO_to_ECEF_lax_morphism",
+      "label": "PPO_to_ECEF_lax_morphism",
+      "module": "Basic",
+      "kind": "def",
+      "line": 1149,
+      "color": "#4CAF50",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SpectrallyNormalized",
+      "label": "SpectrallyNormalized",
+      "module": "Basic",
+      "kind": "structure",
+      "line": 1179,
+      "color": "#4CAF50",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "triple_safety_bound",
+      "label": "triple_safety_bound",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 1192,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.lipschitz_orbit_cauchy",
+      "label": "SOS.lipschitz_orbit_cauchy",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 1205,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.policy_orbit_converges",
+      "label": "SOS.policy_orbit_converges",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 1222,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.limit_is_fixed_point",
+      "label": "SOS.limit_is_fixed_point",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 1234,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.evaluator_stationary_at_limit",
+      "label": "SOS.evaluator_stationary_at_limit",
+      "module": "Basic",
+      "kind": "theorem",
+      "line": 1256,
+      "color": "#4CAF50",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.gap_nonneg",
+      "label": "SOS.gap_nonneg",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 33,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.gap_le_initial",
+      "label": "SOS.gap_le_initial",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 40,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.loj_implies_small",
+      "label": "SOS.loj_implies_small",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 53,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.power_law_mul_alpha2",
+      "label": "SOS.power_law_mul_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 77,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.power_law_rate_alpha2",
+      "label": "SOS.power_law_rate_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 124,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.gap_nonneg_basin",
+      "label": "SOS.gap_nonneg_basin",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 142,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.gap_le_initial_basin",
+      "label": "SOS.gap_le_initial_basin",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 150,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.loj_implies_small_basin",
+      "label": "SOS.loj_implies_small_basin",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 162,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.local_power_law_mul_alpha2",
+      "label": "SOS.local_power_law_mul_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 186,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.local_power_law_rate_alpha2",
+      "label": "SOS.local_power_law_rate_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 231,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.power_law_rate_alpha2_of_local",
+      "label": "SOS.power_law_rate_alpha2_of_local",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 244,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.lipschitz_rate_transfer_alpha2",
+      "label": "SOS.Morphism.lipschitz_rate_transfer_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 262,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.local_lipschitz_rate_transfer_alpha2",
+      "label": "SOS.Morphism.local_lipschitz_rate_transfer_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 283,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.holder_rate_transfer_alpha2",
+      "label": "SOS.Morphism.holder_rate_transfer_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 320,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.local_holder_rate_transfer_alpha2",
+      "label": "SOS.Morphism.local_holder_rate_transfer_alpha2",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 343,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "bernoulli_product",
+      "label": "bernoulli_product",
+      "module": "PowerLaw",
+      "kind": "lemma",
+      "line": 382,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.power_law_mul_general",
+      "label": "SOS.power_law_mul_general",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 410,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.power_law_rate_general",
+      "label": "SOS.power_law_rate_general",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 470,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.holder_rate_transfer_general",
+      "label": "SOS.Morphism.holder_rate_transfer_general",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 494,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "gradientDescentSOS",
+      "label": "gradientDescentSOS",
+      "module": "PowerLaw",
+      "kind": "def",
+      "line": 549,
+      "color": "#2196F3",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "gd_convergence",
+      "label": "gd_convergence",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 570,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "gd_rate",
+      "label": "gd_rate",
+      "module": "PowerLaw",
+      "kind": "theorem",
+      "line": 587,
+      "color": "#2196F3",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "TimeIdx",
+      "label": "TimeIdx",
+      "module": "ProofForge",
+      "kind": "abbrev",
+      "line": 49,
+      "color": "#F44336",
+      "shape": "hexagon",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "WalkForwardFold",
+      "label": "WalkForwardFold",
+      "module": "ProofForge",
+      "kind": "structure",
+      "line": 53,
+      "color": "#F44336",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "CostModel",
+      "label": "CostModel",
+      "module": "ProofForge",
+      "kind": "structure",
+      "line": 63,
+      "color": "#F44336",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "noLookAhead",
+      "label": "noLookAhead",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 81,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "temporalOrder",
+      "label": "temporalOrder",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 87,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "foldSeparation",
+      "label": "foldSeparation",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 93,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "costMonotone",
+      "label": "costMonotone",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 99,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "costsNonneg",
+      "label": "costsNonneg",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 104,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "backtesterInvariant",
+      "label": "backtesterInvariant",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 113,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "backtesterInvariant_preserved",
+      "label": "backtesterInvariant_preserved",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 130,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "noLookAhead_or_not",
+      "label": "noLookAhead_or_not",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 144,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "checkNoLookAhead",
+      "label": "checkNoLookAhead",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 168,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": true,
+      "size": 5
+    },
+    {
+      "id": "checkTemporalOrder",
+      "label": "checkTemporalOrder",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 181,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": true,
+      "size": 5
+    },
+    {
+      "id": "checkFoldSeparation",
+      "label": "checkFoldSeparation",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 188,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": true,
+      "size": 5
+    },
+    {
+      "id": "checkCostMonotone",
+      "label": "checkCostMonotone",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 202,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": true,
+      "size": 5
+    },
+    {
+      "id": "checkAllInvariants",
+      "label": "checkAllInvariants",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 211,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": true,
+      "size": 5
+    },
+    {
+      "id": "checkNoLookAhead_sound",
+      "label": "checkNoLookAhead_sound",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 224,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "backtesterSOS",
+      "label": "backtesterSOS",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 261,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "backtester_convergence",
+      "label": "backtester_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 272,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "backtester_invariant_preserved",
+      "label": "backtester_invariant_preserved",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 286,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "backtester_rate",
+      "label": "backtester_rate",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 301,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "backtesterSOS_addInvariant",
+      "label": "backtesterSOS_addInvariant",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 326,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "backtesterSOS_addInvariant_convergence",
+      "label": "backtesterSOS_addInvariant_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 334,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "proofForgeSOS",
+      "label": "proofForgeSOS",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 381,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "proofForge_convergence",
+      "label": "proofForge_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 391,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "proofForge_rate",
+      "label": "proofForge_rate",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 406,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "asyncProofForgeSOS",
+      "label": "asyncProofForgeSOS",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 428,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "asyncProofForge_convergence",
+      "label": "asyncProofForge_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 438,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedAsyncProofForgeSOS",
+      "label": "constrainedAsyncProofForgeSOS",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 457,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrainedAsyncProofForge_convergence",
+      "label": "constrainedAsyncProofForge_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 467,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "backtester_to_proofForge_morphism",
+      "label": "backtester_to_proofForge_morphism",
+      "module": "ProofForge",
+      "kind": "axiom",
+      "line": 512,
+      "color": "#F44336",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "splSOS",
+      "label": "splSOS",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 563,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "spl_convergence",
+      "label": "spl_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 572,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "spl_rate",
+      "label": "spl_rate",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 585,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "constrainedSplSOS",
+      "label": "constrainedSplSOS",
+      "module": "ProofForge",
+      "kind": "def",
+      "line": 606,
+      "color": "#F44336",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "constrainedSpl_convergence",
+      "label": "constrainedSpl_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 614,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "spl_to_proofForge_lax_morphism",
+      "label": "spl_to_proofForge_lax_morphism",
+      "module": "ProofForge",
+      "kind": "axiom",
+      "line": 668,
+      "color": "#F44336",
+      "shape": "diamond",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "two_level_convergence",
+      "label": "two_level_convergence",
+      "module": "ProofForge",
+      "kind": "theorem",
+      "line": 691,
+      "color": "#F44336",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "power_law_recurrence_mul",
+      "label": "power_law_recurrence_mul",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 47,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "power_law_recurrence_div",
+      "label": "power_law_recurrence_div",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 83,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "small_constant_of_recurrence",
+      "label": "small_constant_of_recurrence",
+      "module": "StochasticRates",
+      "kind": "lemma",
+      "line": 100,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "power_law_recurrence_mul_general",
+      "label": "power_law_recurrence_mul_general",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 120,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "power_law_recurrence_div_general",
+      "label": "power_law_recurrence_div_general",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 166,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "small_constant_of_recurrence_general",
+      "label": "small_constant_of_recurrence_general",
+      "module": "StochasticRates",
+      "kind": "lemma",
+      "line": 181,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.expectedEval",
+      "label": "StochasticSOS.expectedEval",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 213,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.expectedGap",
+      "label": "StochasticSOS.expectedGap",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 217,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.expectedGap_nonneg",
+      "label": "StochasticSOS.expectedGap_nonneg",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 222,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expectedEval_mono",
+      "label": "StochasticSOS.expectedEval_mono",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 243,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expectedGap_mono",
+      "label": "StochasticSOS.expectedGap_mono",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 265,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expectedGap_le_initial",
+      "label": "StochasticSOS.expectedGap_le_initial",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 272,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "sq_integral_le_integral_sq",
+      "label": "sq_integral_le_integral_sq",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 296,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expectedGap_recurrence",
+      "label": "StochasticSOS.expectedGap_recurrence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 350,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expected_rate_alpha2",
+      "label": "StochasticSOS.expected_rate_alpha2",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 484,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expectedGap_recurrence_general",
+      "label": "StochasticSOS.expectedGap_recurrence_general",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 512,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expected_rate_general",
+      "label": "StochasticSOS.expected_rate_general",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 626,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.pathwise_rate_alpha2",
+      "label": "StochasticSOS.pathwise_rate_alpha2",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 665,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.high_probability_bound",
+      "label": "StochasticSOS.high_probability_bound",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 723,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.expected_holder_bound_alpha2",
+      "label": "StochasticSOS.expected_holder_bound_alpha2",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 782,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.Morphism.pathwise_holder_transfer_alpha2",
+      "label": "StochasticSOS.Morphism.pathwise_holder_transfer_alpha2",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 872,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "stochasticGrpoSOS",
+      "label": "stochasticGrpoSOS",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 918,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "stochasticGrpo_convergence",
+      "label": "stochasticGrpo_convergence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 932,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "stochasticAutoresearchSOS",
+      "label": "stochasticAutoresearchSOS",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 948,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "stochasticAutoresearch_convergence",
+      "label": "stochasticAutoresearch_convergence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 963,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "stochasticSGD_SOS",
+      "label": "stochasticSGD_SOS",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 980,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "stochasticSGD_convergence",
+      "label": "stochasticSGD_convergence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 995,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "stochastic_improvement_of_mixture",
+      "label": "stochastic_improvement_of_mixture",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1025,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.ApproxLaxMorphism",
+      "label": "SOS.ApproxLaxMorphism",
+      "module": "StochasticRates",
+      "kind": "structure",
+      "line": 1067,
+      "color": "#E91E63",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.ApproxLaxMorphism.degraded_image_bound",
+      "label": "SOS.ApproxLaxMorphism.degraded_image_bound",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1087,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.LaxMorphism.toApprox",
+      "label": "SOS.LaxMorphism.toApprox",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 1103,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "kdrl_warm_start_rate",
+      "label": "kdrl_warm_start_rate",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1147,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.stochConstraintLift",
+      "label": "StochasticSOS.stochConstraintLift",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 1206,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.stochConstraintLift_convergence",
+      "label": "StochasticSOS.stochConstraintLift_convergence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1222,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.variance_acceleration_nonneg",
+      "label": "StochasticSOS.variance_acceleration_nonneg",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1264,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "label": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1273,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "randOptSOS",
+      "label": "randOptSOS",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 1317,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "randOpt_convergence",
+      "label": "randOpt_convergence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1327,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "real_bernoulli_product",
+      "label": "real_bernoulli_product",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1358,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "real_bernoulli_product_boundary",
+      "label": "real_bernoulli_product_boundary",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1379,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "rpow_recurrence_div",
+      "label": "rpow_recurrence_div",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1389,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "InhomogeneousSOS",
+      "label": "InhomogeneousSOS",
+      "module": "StochasticRates",
+      "kind": "structure",
+      "line": 1485,
+      "color": "#E91E63",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "(S",
+      "label": "(S",
+      "module": "StochasticRates",
+      "kind": "instance",
+      "line": 1501,
+      "color": "#E91E63",
+      "shape": "pentagon",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "InhomogeneousSOS.compose_deltas",
+      "label": "InhomogeneousSOS.compose_deltas",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 1504,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "InhomogeneousSOS.orbit",
+      "label": "InhomogeneousSOS.orbit",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 1510,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": true,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "InhomogeneousSOS.orbit_monotone",
+      "label": "InhomogeneousSOS.orbit_monotone",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1515,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "InhomogeneousSOS.orbit_bddAbove",
+      "label": "InhomogeneousSOS.orbit_bddAbove",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1523,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "InhomogeneousSOS.convergence",
+      "label": "InhomogeneousSOS.convergence",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1531,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.toInhomogeneous",
+      "label": "SOS.toInhomogeneous",
+      "module": "StochasticRates",
+      "kind": "def",
+      "line": 1538,
+      "color": "#E91E63",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.toInhomogeneous_orbit",
+      "label": "SOS.toInhomogeneous_orbit",
+      "module": "StochasticRates",
+      "kind": "theorem",
+      "line": 1548,
+      "color": "#E91E63",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "homKernel",
+      "label": "homKernel",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 37,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "homKernel.instIsMarkovKernel",
+      "label": "homKernel.instIsMarkovKernel",
+      "module": "StochasticSOS",
+      "kind": "instance",
+      "line": 41,
+      "color": "#9C27B0",
+      "shape": "pentagon",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "sosPathMeasure",
+      "label": "sosPathMeasure",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 47,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "sosPathMeasure.instIsProbabilityMeasure",
+      "label": "sosPathMeasure.instIsProbabilityMeasure",
+      "module": "StochasticSOS",
+      "kind": "instance",
+      "line": 51,
+      "color": "#9C27B0",
+      "shape": "pentagon",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS",
+      "label": "StochasticSOS",
+      "module": "StochasticSOS",
+      "kind": "structure",
+      "line": 69,
+      "color": "#9C27B0",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.evalProcess",
+      "label": "StochasticSOS.evalProcess",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 98,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.evalProcess_stronglyAdapted",
+      "label": "StochasticSOS.evalProcess_stronglyAdapted",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 123,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.evalProcess_integrable",
+      "label": "StochasticSOS.evalProcess_integrable",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 137,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.evalProcess_condExp_le",
+      "label": "StochasticSOS.evalProcess_condExp_le",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 149,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.evalProcess_submartingale",
+      "label": "StochasticSOS.evalProcess_submartingale",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 196,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.convergence",
+      "label": "StochasticSOS.convergence",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 219,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.toStochasticSOS",
+      "label": "SOS.toStochasticSOS",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 254,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "SOS.stochastic_convergence",
+      "label": "SOS.stochastic_convergence",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 270,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.Morphism",
+      "label": "StochasticSOS.Morphism",
+      "module": "StochasticSOS",
+      "kind": "structure",
+      "line": 290,
+      "color": "#9C27B0",
+      "shape": "triangle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.Morphism.ext'",
+      "label": "StochasticSOS.Morphism.ext'",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 308,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.Morphism.id",
+      "label": "StochasticSOS.Morphism.id",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 314,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.Morphism.comp",
+      "label": "StochasticSOS.Morphism.comp",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 328,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    },
+    {
+      "id": "StochasticSOS.Morphism.id_comp",
+      "label": "StochasticSOS.Morphism.id_comp",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 344,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.Morphism.comp_id",
+      "label": "StochasticSOS.Morphism.comp_id",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 350,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "StochasticSOS.Morphism.comp_assoc",
+      "label": "StochasticSOS.Morphism.comp_assoc",
+      "module": "StochasticSOS",
+      "kind": "theorem",
+      "line": 356,
+      "color": "#9C27B0",
+      "shape": "circle",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 8
+    },
+    {
+      "id": "SOS.Morphism.toStochasticMorphism",
+      "label": "SOS.Morphism.toStochasticMorphism",
+      "module": "StochasticSOS",
+      "kind": "def",
+      "line": 365,
+      "color": "#9C27B0",
+      "shape": "square",
+      "noncomputable": false,
+      "has_export": false,
+      "size": 5
+    }
+  ],
+  "edges": [
+    {
+      "source": "gd_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "homKernel"
+    },
+    {
+      "source": "randOpt_convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "two_level_convergence",
+      "target": "proofForgeSOS"
+    },
+    {
+      "source": "SOS.power_law_mul_general",
+      "target": "bernoulli_product"
+    },
+    {
+      "source": "SOS.Morphism.comp_id",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.id",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_le_initial",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.rate_transfer",
+      "target": "SOS"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "costsNonneg"
+    },
+    {
+      "source": "PPO_to_Autoresearch_morphism",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "backtesterSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "StochasticSOS.evalProcess"
+    },
+    {
+      "source": "two_level_convergence",
+      "target": "spl_to_proofForge_lax_morphism"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_condExp_le",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "SOS.power_law_rate_general",
+      "target": "SOS"
+    },
+    {
+      "source": "InhomogeneousSOS.orbit_monotone",
+      "target": "InhomogeneousSOS.compose_deltas"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "noLookAhead"
+    },
+    {
+      "source": "SOS.Morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.toStochasticMorphism",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "SOS.policy_orbit_converges",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.id_comp",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "SOS.Morphism.local_holder_rate_transfer_alpha2",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp_id",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "safePISOS",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.limit_compat",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": ":",
+      "target": "SOS"
+    },
+    {
+      "source": "(S",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.high_probability_bound",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": ":",
+      "target": "SOS.Morphism.comp_assoc"
+    },
+    {
+      "source": "SOS.local_geometric_rate",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "StochasticSOS.variance_acceleration_nonneg",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "StochasticSOS.convergence"
+    },
+    {
+      "source": "SOS.LaxMorphism.lax_limit_bound",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "grpo_convergence",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "stochasticGrpo_convergence",
+      "target": "stochasticGrpoSOS"
+    },
+    {
+      "source": "DecoupledPPO_SOS",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.id_comp",
+      "target": "SOS.LaxMorphism.id"
+    },
+    {
+      "source": "SOS.LaxMorphism.lax_limit_bound",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "SOS.toStochasticSOS",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "real_bernoulli_product_boundary",
+      "target": "real_bernoulli_product"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence_general",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_condExp_le",
+      "target": "homKernel"
+    },
+    {
+      "source": "SOS.toInhomogeneous_orbit",
+      "target": "InhomogeneousSOS.orbit"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "CostModel"
+    },
+    {
+      "source": "PPO_convergence",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "SOS.Morphism.comp_id",
+      "target": "SOS.Morphism.id"
+    },
+    {
+      "source": "SOS.LaxMorphism.lax_image_convergence",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "quadruple_safety_lipschitz",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "SOS.gap_nonneg",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.toInhomogeneous_orbit",
+      "target": "SOS.toInhomogeneous"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_alpha2",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "constrainedSplSOS",
+      "target": "splSOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.lax_image_convergence",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "stochastic_improvement_of_mixture",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_condExp_le",
+      "target": "StochasticSOS.evalProcess"
+    },
+    {
+      "source": "StochasticSOS.expected_rate_general",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.orbit_eq",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "backtesterSOS_addInvariant_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "proofForge_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "real_bernoulli_product_boundary",
+      "target": "power_law_recurrence_div_general"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "proofForgeSOS"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "foldSeparation"
+    },
+    {
+      "source": "SOS.loj_implies_small",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism",
+      "target": "SOS"
+    },
+    {
+      "source": "(it",
+      "target": "SOS.power_law_mul_alpha2"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_morphism",
+      "target": "SOS.Morphism.comp"
+    },
+    {
+      "source": "PPO_to_GRPO_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "PPO_to_Autoresearch_morphism"
+    },
+    {
+      "source": "StochasticSOS.Morphism.pathwise_holder_transfer_alpha2",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "InhomogeneousSOS.orbit",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "GRPO_to_Autoresearch_morphism",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "SOS.Morphism.orbit_eq",
+      "target": "SOS"
+    },
+    {
+      "source": "CostModel",
+      "target": "SOS.constraintLift"
+    },
+    {
+      "source": "StochasticSOS.expectedEval_mono",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_id",
+      "target": "SOS.Morphism.id"
+    },
+    {
+      "source": "SOS.Morphism.toStochasticMorphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": ":",
+      "target": "SOS.Morphism.id"
+    },
+    {
+      "source": "backtester_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "temporalOrder"
+    },
+    {
+      "source": "constrainedKeepDiscard_constraint",
+      "target": "constrainedKeepDiscard"
+    },
+    {
+      "source": "SOS.LaxMorphism.toApprox",
+      "target": "SOS.ApproxLaxMorphism"
+    },
+    {
+      "source": "asyncGrpo_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_comp",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.local_power_law_mul_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_integrable",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "emSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "spl_to_proofForge_lax_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.toStochasticMorphism",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedEval_mono",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": "SOS.LaxMorphism.id_comp",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.id",
+      "target": "SOS"
+    },
+    {
+      "source": "backtester_rate",
+      "target": "backtesterSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedEval",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "constrainedAsyncProofForgeSOS",
+      "target": "asyncProofForgeSOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.ext'",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp_id",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_mono",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "(S",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "small_constant_of_recurrence",
+      "target": "SOS.power_law_mul_general"
+    },
+    {
+      "source": "StochasticSOS.convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "triple_safety_bound",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedSpl_convergence",
+      "target": "constrainedSplSOS"
+    },
+    {
+      "source": "checkNoLookAhead_sound",
+      "target": "backtesterInvariant"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_lax_morphism",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "StochasticSOS.expected_rate_alpha2",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp_assoc",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "PPO_to_GRPO_morphism"
+    },
+    {
+      "source": "SOS.Morphism.id_comp",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "grpo_rate",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "SOS.Morphism.local_rate_transfer",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.ApproxLaxMorphism",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.evalProcess",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.local_geometric_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedAutoresearchSOS",
+      "target": "constrainedKeepDiscard_monotone"
+    },
+    {
+      "source": "SOS.Morphism.id",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_integrable",
+      "target": "StochasticSOS.evalProcess"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_id",
+      "target": "SOS.LaxMorphism.id"
+    },
+    {
+      "source": "constrainedAutoresearchSOS",
+      "target": "constrainedKeepDiscard"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.gap_le_initial",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "constrainedAsyncProofForgeSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "safe_pi_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_GRPO_morphism",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_lax_morphism",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.gap_le_initial_basin",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "spl_convergence",
+      "target": "splSOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.id",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "SOS.local_power_law_rate_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.constraintLift",
+      "target": "SOS"
+    },
+    {
+      "source": "stochasticGrpo_convergence",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.iterate_mem_basin",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.comp_id",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "WalkForwardFold"
+    },
+    {
+      "source": "randOpt_convergence",
+      "target": "bernoulli_product"
+    },
+    {
+      "source": "SOS.LaxMorphism.lax_image_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "constrained_ecef_convergence",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "checkAllInvariants",
+      "target": "checkNoLookAhead"
+    },
+    {
+      "source": "SOS.IsBasin",
+      "target": "SOS"
+    },
+    {
+      "source": "InhomogeneousSOS.orbit_bddAbove",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "SOS.Morphism.rate_transfer",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.orbit_monotone",
+      "target": "SOS"
+    },
+    {
+      "source": "DecoupledPPO_convergence",
+      "target": "DecoupledPPO_SOS"
+    },
+    {
+      "source": "SOS.Morphism.comp_assoc",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.convergence",
+      "target": "StochasticSOS.evalProcess"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "PPO_to_Autoresearch_morphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence_general",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.local_lipschitz_rate_transfer_alpha2",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "keepDiscard_bounded",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.pathwise_rate_alpha2",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "constrainedEcefSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_lax_morphism",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "stochasticAutoresearch_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "grpo_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.power_law_mul_alpha2",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "stochasticAutoresearch_convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp_assoc",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "backtesterSOS_addInvariant",
+      "target": "SOS"
+    },
+    {
+      "source": "spl_to_proofForge_lax_morphism",
+      "target": "splSOS"
+    },
+    {
+      "source": "SOS.Morphism.limit_compat",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.expected_rate_general",
+      "target": "power_law_recurrence_div_general"
+    },
+    {
+      "source": "kdrl_warm_start_rate",
+      "target": ":"
+    },
+    {
+      "source": "constrainedKeepDiscard_monotone",
+      "target": "constrainedKeepDiscard"
+    },
+    {
+      "source": "stochasticAutoresearchSOS",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence_general",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": ":",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.gap_nonneg_basin",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "Autoresearch_to_ECEF_lax_morphism"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_id",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "Autoresearch_to_ECEF_morphism"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "backtesterInvariant"
+    },
+    {
+      "source": "SOS.geometric_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "constrainedKeepDiscard_constraint",
+      "target": "SOS"
+    },
+    {
+      "source": "InhomogeneousSOS.orbit_monotone",
+      "target": "InhomogeneousSOS.orbit"
+    },
+    {
+      "source": "ecefSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "StochasticSOS.Morphism.ext'",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.expected_rate_general",
+      "target": "small_constant_of_recurrence_general"
+    },
+    {
+      "source": "splSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.lipschitz_rate_transfer_alpha2",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "SOS.constraint_along_orbit",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "rpow_recurrence_div",
+      "target": "real_bernoulli_product"
+    },
+    {
+      "source": "StochasticSOS.expected_holder_bound_alpha2",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "GRPO_to_Autoresearch_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_submartingale",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "asyncProofForgeSOS",
+      "target": "asyncGrpoSOS"
+    },
+    {
+      "source": "constrained_em_convergence",
+      "target": "constrainedEmSOS"
+    },
+    {
+      "source": "SOS.orbit_bddAbove",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "AsyncDecoupledPPO_convergence",
+      "target": "AsyncDecoupledPPO_SOS"
+    },
+    {
+      "source": "spl_rate",
+      "target": "splSOS"
+    },
+    {
+      "source": "gd_convergence",
+      "target": "gradientDescentSOS"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "asyncProofForge_convergence",
+      "target": "asyncProofForgeSOS"
+    },
+    {
+      "source": "kdrl_warm_start_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.toInhomogeneous",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "constrainedEmSOS",
+      "target": "emSOS"
+    },
+    {
+      "source": "(which",
+      "target": "SOS"
+    },
+    {
+      "source": "backtesterSOS_addInvariant_convergence",
+      "target": "backtesterSOS_addInvariant"
+    },
+    {
+      "source": "SOS.toInhomogeneous_orbit",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "keepDiscard_bounded",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "autoresearch_convergence"
+    },
+    {
+      "source": "constrainedSpl_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "stochasticAutoresearch_convergence",
+      "target": "stochasticAutoresearchSOS"
+    },
+    {
+      "source": "PPO_to_GRPO_morphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_nonneg",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "costsNonneg",
+      "target": "CostModel"
+    },
+    {
+      "source": "checkNoLookAhead_sound",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.local_rate_transfer",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.stochConstraintLift_convergence",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "AsyncDecoupledPPO_SOS",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.toInhomogeneous_orbit",
+      "target": "InhomogeneousSOS.compose_deltas"
+    },
+    {
+      "source": "constrained_em_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "exact_pi_convergence",
+      "target": "exactPISOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp_id",
+      "target": "SOS.LaxMorphism.id"
+    },
+    {
+      "source": "power_law_recurrence_mul_general",
+      "target": "bernoulli_product"
+    },
+    {
+      "source": "sosPathMeasure.instIsProbabilityMeasure",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "costMonotone",
+      "target": "CostModel"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "temporalOrder"
+    },
+    {
+      "source": "SOS.Morphism.comp",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.loj_implies_small_basin",
+      "target": "SOS"
+    },
+    {
+      "source": "asyncGrpoSOS",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_comp",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.gap_le_initial",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_Autoresearch_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "power_law_recurrence_div_general",
+      "target": "power_law_recurrence_mul_general"
+    },
+    {
+      "source": "SOS.asyncLift",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.gap_le_initial_basin",
+      "target": "SOS"
+    },
+    {
+      "source": "autoresearchSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedAutoresearchSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": "SOS.LaxMorphism.toApprox",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "StochasticSOS.Morphism.id_comp",
+      "target": "StochasticSOS.Morphism.id"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_general",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "constrainedAutoresearchSOS",
+      "target": "constrainedKeepDiscard_bounded"
+    },
+    {
+      "source": "checkAllInvariants",
+      "target": "checkCostMonotone"
+    },
+    {
+      "source": "SOS.lipschitz_orbit_cauchy",
+      "target": "SOS"
+    },
+    {
+      "source": "grpo_rate",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.power_law_mul_general",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "SOS.LaxMorphism.ext'",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "SOS.Morphism.limit_bound",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.orbit",
+      "target": "SOS"
+    },
+    {
+      "source": "exact_pi_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.local_lipschitz_rate_transfer_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "gd_rate",
+      "target": "gradientDescentSOS"
+    },
+    {
+      "source": "constrainedAutoresearchSOS",
+      "target": "constrainedKeepDiscard_constraint"
+    },
+    {
+      "source": "costsNonneg",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.ApproxLaxMorphism.degraded_image_bound",
+      "target": "SOS"
+    },
+    {
+      "source": "AsyncDecoupledPPO_convergence",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "SOS.power_law_mul_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.local_holder_rate_transfer_alpha2",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "SOS.gap_nonneg_basin",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp_id",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expected_rate_alpha2",
+      "target": "small_constant_of_recurrence"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "costMonotone"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_condExp_le",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.orbit_le_limit",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.local_holder_rate_transfer_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_stronglyAdapted",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_submartingale",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "autoresearch_convergence",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "SOS.toStochasticSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "backtesterSOS",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "grpoSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "safe_pi_convergence",
+      "target": "safePISOS"
+    },
+    {
+      "source": "SOS.Morphism.preserves_convergence_limit",
+      "target": "SOS"
+    },
+    {
+      "source": "stochasticGrpoSOS",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_lax_morphism",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "SOS.orbit_is_basin",
+      "target": "SOS"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_morphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "autoresearchSOS",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "StochasticSOS.high_probability_bound",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.constraintLift_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.lax_limit_bound",
+      "target": "SOS"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "WalkForwardFold"
+    },
+    {
+      "source": "kdrl_warm_start_rate",
+      "target": "SOS.constraintLift"
+    },
+    {
+      "source": "small_constant_of_recurrence_general",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "backtesterSOS_addInvariant_convergence",
+      "target": "asyncGrpoSOS"
+    },
+    {
+      "source": "constrainedSpl_convergence",
+      "target": "splSOS"
+    },
+    {
+      "source": "proofForge_rate",
+      "target": "asyncGrpoSOS"
+    },
+    {
+      "source": "proofForgeSOS",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.Morphism.comp_assoc",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.Morphism.ext'",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.orbit_le_succ",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_general",
+      "target": "emSOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.pathwise_holder_transfer_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "asyncGrpo_rate",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "StochasticSOS.Morphism.pathwise_holder_transfer_alpha2",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "constrained_grpo_convergence",
+      "target": "constrainedGrpoSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedEval_mono",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "proofForge_rate",
+      "target": "proofForgeSOS"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_alpha2",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "StochasticSOS.pathwise_rate_alpha2",
+      "target": "small_constant_of_recurrence"
+    },
+    {
+      "source": "StochasticSOS.Morphism.id",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.orbit_eq",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "(it",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.stochastic_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "temporalOrder",
+      "target": "WalkForwardFold"
+    },
+    {
+      "source": "SOS.stochastic_convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "constrainedAsyncProofForge_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "backtester_to_proofForge_morphism",
+      "target": "backtesterSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_nonneg",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_id",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "two_level_convergence",
+      "target": "splSOS"
+    },
+    {
+      "source": "quadruple_safety_lipschitz",
+      "target": "SOS"
+    },
+    {
+      "source": "gradientDescentSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "safePISOS",
+      "target": "exactPISOS"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_comp",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "PPO_is_SOS",
+      "target": "SOS"
+    },
+    {
+      "source": "constrained_ecef_convergence",
+      "target": "constrainedEcefSOS"
+    },
+    {
+      "source": "constrained_autoresearch_convergence",
+      "target": "constrainedAutoresearchSOS"
+    },
+    {
+      "source": "noLookAhead_or_not",
+      "target": "noLookAhead"
+    },
+    {
+      "source": "spl_to_proofForge_lax_morphism",
+      "target": "proofForgeSOS"
+    },
+    {
+      "source": "StochasticSOS.expected_rate_alpha2",
+      "target": "power_law_recurrence_div"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp_assoc",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "spl_to_proofForge_lax_morphism",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "backtesterSOS_addInvariant",
+      "target": "backtesterSOS"
+    },
+    {
+      "source": "StochasticSOS.high_probability_bound",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "real_bernoulli_product_boundary",
+      "target": "bernoulli_product"
+    },
+    {
+      "source": "SOS.LaxMorphism.ext'",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedKeepDiscard_bounded",
+      "target": "constrainedKeepDiscard"
+    },
+    {
+      "source": "sosPathMeasure",
+      "target": "homKernel"
+    },
+    {
+      "source": "SOS.LaxMorphism.id_comp",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "GRPO_to_Autoresearch_morphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_nonneg",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_integrable",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "costsNonneg",
+      "target": "SOS.constraintLift"
+    },
+    {
+      "source": "SOS.power_law_mul_general",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expected_holder_bound_alpha2",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "DecoupledPPO_convergence",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "PPO_to_ECEF_morphism",
+      "target": "Autoresearch_to_ECEF_morphism"
+    },
+    {
+      "source": "SOS.Morphism.toStochasticMorphism",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "InhomogeneousSOS.orbit_monotone",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "keepDiscard_bounded",
+      "target": "keepDiscard_monotone_improvement"
+    },
+    {
+      "source": "StochasticSOS.Morphism.id_comp",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "asyncGrpoSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.ApproxLaxMorphism.degraded_image_bound",
+      "target": "SOS.ApproxLaxMorphism"
+    },
+    {
+      "source": "stochasticSGD_SOS",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.evaluator_stationary_at_limit",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": "constrainedGrpoSOS",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "keepDiscard_monotone_improvement",
+      "target": "keepDiscard"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "foldSeparation",
+      "target": "WalkForwardFold"
+    },
+    {
+      "source": "StochasticSOS.Morphism.ext'",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "stochasticSGD_convergence",
+      "target": "stochasticSGD_SOS"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "costsNonneg"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_morphism",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "SOS.LaxMorphism.comp_assoc",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.convergence",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.Morphism.local_rate_transfer",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.Morphism.id_comp",
+      "target": "SOS.Morphism.id"
+    },
+    {
+      "source": "AsyncDecoupledPPO_SOS",
+      "target": "DecoupledPPO_SOS"
+    },
+    {
+      "source": "constrainedAsyncProofForge_convergence",
+      "target": "constrainedAsyncProofForgeSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "sq_integral_le_integral_sq"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "noLookAhead"
+    },
+    {
+      "source": "SOS.Morphism.comp",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "proofForge_convergence",
+      "target": "proofForgeSOS"
+    },
+    {
+      "source": "InhomogeneousSOS.compose_deltas",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "SOS"
+    },
+    {
+      "source": "PPO_to_Autoresearch_morphism",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "sosPathMeasure.instIsProbabilityMeasure",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.pathwise_rate_alpha2",
+      "target": "power_law_recurrence_div"
+    },
+    {
+      "source": "InhomogeneousSOS.convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedEcefSOS",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "PPO_to_ECEF_lax_morphism",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "stochasticGrpo_convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_lax_morphism",
+      "target": "SOS"
+    },
+    {
+      "source": "randOptSOS",
+      "target": "stochasticAutoresearchSOS"
+    },
+    {
+      "source": "SOS.toInhomogeneous_orbit",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "GRPO_to_Autoresearch_morphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_le_initial",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "constrained_grpo_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "checkAllInvariants",
+      "target": "checkTemporalOrder"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence_general",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "backtester_invariant_preserved",
+      "target": "backtesterSOS"
+    },
+    {
+      "source": "checkNoLookAhead_sound",
+      "target": "checkNoLookAhead"
+    },
+    {
+      "source": "StochasticSOS.Morphism.pathwise_holder_transfer_alpha2",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "SOS.convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.limit_bound",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "constrainedEmSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.pathwise_rate_alpha2",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "SOS.power_law_rate_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.orbit_le_succ",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.local_lipschitz_rate_transfer_alpha2",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "SOS.Morphism.iterate_commute",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp_assoc",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_nonneg",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "CostModel"
+    },
+    {
+      "source": "rpow_recurrence_div",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.rate_transfer",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "exactPISOS",
+      "target": "SOS"
+    },
+    {
+      "source": "autoresearchSOS",
+      "target": "keepDiscard_bounded"
+    },
+    {
+      "source": "SOS.Morphism.iterate_commute",
+      "target": "SOS"
+    },
+    {
+      "source": "backtesterInvariant",
+      "target": "costMonotone"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_morphism",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.orbit_bounded",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "backtesterInvariant_preserved",
+      "target": "foldSeparation"
+    },
+    {
+      "source": "asyncGrpo_convergence",
+      "target": "asyncGrpoSOS"
+    },
+    {
+      "source": "proofForgeSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "InhomogeneousSOS.orbit_bddAbove",
+      "target": "SOS"
+    },
+    {
+      "source": "constrained_ecef_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.stochConstraintLift",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": ":"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp_id",
+      "target": "StochasticSOS.Morphism"
+    },
+    {
+      "source": "constrained_autoresearch_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "autoresearchSOS",
+      "target": "keepDiscard_monotone_improvement"
+    },
+    {
+      "source": "stochasticAutoresearch_convergence",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "SOS.geometric_rate",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "SOS.Morphism.preserves_convergence_limit",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence_general",
+      "target": "homKernel"
+    },
+    {
+      "source": "SOS.Morphism.toLaxMorphism_id",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "SOS.Morphism.lipschitz_rate_transfer_alpha2",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.evalProcess_submartingale",
+      "target": "SOS"
+    },
+    {
+      "source": "small_constant_of_recurrence",
+      "target": "SOS"
+    },
+    {
+      "source": "power_law_recurrence_div",
+      "target": "power_law_recurrence_mul"
+    },
+    {
+      "source": "backtesterSOS_addInvariant_convergence",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "Autoresearch_to_ECEF_lax_morphism",
+      "target": "PPO_to_ECEF_morphism"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "power_law_recurrence_div"
+    },
+    {
+      "source": "SOS.Morphism.lipschitz_rate_transfer_alpha2",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence_general",
+      "target": "StochasticSOS.evalProcess"
+    },
+    {
+      "source": "PPO_to_GRPO_morphism",
+      "target": "grpoSOS"
+    },
+    {
+      "source": "em_convergence",
+      "target": "emSOS"
+    },
+    {
+      "source": "randOptSOS",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "PPO_to_ECEF_via_GRPO",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "SOS.Morphism.toStochasticMorphism",
+      "target": "SOS.toStochasticSOS"
+    },
+    {
+      "source": "checkAllInvariants",
+      "target": "checkFoldSeparation"
+    },
+    {
+      "source": "SOS.asyncLift_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.Morphism.ext'",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "StochasticSOS.variance_acceleration_nonneg",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "InhomogeneousSOS.convergence",
+      "target": "InhomogeneousSOS"
+    },
+    {
+      "source": "StochasticSOS.expected_holder_bound_alpha2",
+      "target": "StochasticSOS"
+    },
+    {
+      "source": "PPO_to_Autoresearch_morphism",
+      "target": "PPO_is_SOS"
+    },
+    {
+      "source": "StochasticSOS.stochConstraintLift_convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "SOS.gap_nonneg",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_recurrence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "SOS.geometric_rate_of_local",
+      "target": "SOS"
+    },
+    {
+      "source": "asyncProofForgeSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "splSOS",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "SOS.power_law_rate_alpha2_of_local",
+      "target": "SOS"
+    },
+    {
+      "source": "kdrl_warm_start_rate",
+      "target": "constrainedGrpoSOS"
+    },
+    {
+      "source": "constrainedSpl_convergence",
+      "target": "proofForgeSOS"
+    },
+    {
+      "source": "SOS.limit_is_fixed_point",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.asyncLift_constraint_preserved",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.high_probability_bound",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": "GRPO_to_Autoresearch_morphism",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "stochastic_improvement_of_mixture",
+      "target": "SOS.LaxMorphism"
+    },
+    {
+      "source": "DecoupledPPO_SOS",
+      "target": "SOS"
+    },
+    {
+      "source": "em_convergence",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.expected_holder_bound_alpha2",
+      "target": "StochasticSOS.expectedEval"
+    },
+    {
+      "source": "homKernel.instIsMarkovKernel",
+      "target": "homKernel"
+    },
+    {
+      "source": "asyncGrpo_rate",
+      "target": "asyncGrpoSOS"
+    },
+    {
+      "source": "SOS.Morphism.id_comp",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedSplSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "backtester_convergence",
+      "target": "backtesterSOS"
+    },
+    {
+      "source": "SOS.improvement_vanishes",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.toInhomogeneous",
+      "target": "SOS"
+    },
+    {
+      "source": "constrainedGrpoSOS",
+      "target": "SOS"
+    },
+    {
+      "source": "ecef_convergence",
+      "target": "ecefSOS"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_general",
+      "target": "SOS.Morphism"
+    },
+    {
+      "source": "randOpt_convergence",
+      "target": "randOptSOS"
+    },
+    {
+      "source": "SOS.Morphism.id",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.toInhomogeneous_orbit",
+      "target": "SOS"
+    },
+    {
+      "source": "CostModel",
+      "target": "SOS"
+    },
+    {
+      "source": "StochasticSOS.second_moment_ge_sq_plus_var",
+      "target": "sq_integral_le_integral_sq"
+    },
+    {
+      "source": "StochasticSOS.Morphism.comp_id",
+      "target": "StochasticSOS.Morphism.id"
+    },
+    {
+      "source": "SOS.LaxMorphism.toApprox",
+      "target": "SOS"
+    },
+    {
+      "source": "SOS.local_power_law_mul_alpha2",
+      "target": "SOS.orbit"
+    },
+    {
+      "source": "stochasticSGD_convergence",
+      "target": "sosPathMeasure"
+    },
+    {
+      "source": "StochasticSOS.expectedGap_mono",
+      "target": "StochasticSOS.expectedGap"
+    },
+    {
+      "source": "checkNoLookAhead_sound",
+      "target": "autoresearchSOS"
+    },
+    {
+      "source": "SOS.Morphism.holder_rate_transfer_general",
+      "target": "SOS"
+    },
+    {
+      "source": "AsyncDecoupledPPO_SOS",
+      "target": "SOS"
+    }
+  ],
+  "audit": {
+    "AReaL": {
+      "sorry_count": 0,
+      "axiom_count": 2,
+      "axiom_names": [
+        "PPO_to_GRPO_morphism",
+        "GRPO_to_Autoresearch_morphism"
+      ],
+      "export_count": 0,
+      "lines": 421
+    },
+    "Basic": {
+      "sorry_count": 0,
+      "axiom_count": 3,
+      "axiom_names": [
+        "PPO_is_SOS",
+        "PPO_to_Autoresearch_morphism",
+        "Autoresearch_to_ECEF_morphism"
+      ],
+      "export_count": 0,
+      "lines": 1262
+    },
+    "PowerLaw": {
+      "sorry_count": 0,
+      "axiom_count": 0,
+      "axiom_names": [],
+      "export_count": 0,
+      "lines": 605
+    },
+    "ProofForge": {
+      "sorry_count": 0,
+      "axiom_count": 2,
+      "axiom_names": [
+        "backtester_to_proofForge_morphism",
+        "spl_to_proofForge_lax_morphism"
+      ],
+      "export_count": 6,
+      "lines": 703
+    },
+    "StochasticRates": {
+      "sorry_count": 0,
+      "axiom_count": 0,
+      "axiom_names": [],
+      "export_count": 0,
+      "lines": 1559
+    },
+    "StochasticSOS": {
+      "sorry_count": 0,
+      "axiom_count": 0,
+      "axiom_names": [],
+      "export_count": 0,
+      "lines": 387
+    }
+  },
+  "paranoia": {
+    "total_sorry": 0,
+    "total_axioms": 7,
+    "total_exports": 6,
+    "all_axiom_names": [
+      "PPO_to_GRPO_morphism",
+      "GRPO_to_Autoresearch_morphism",
+      "PPO_is_SOS",
+      "PPO_to_Autoresearch_morphism",
+      "Autoresearch_to_ECEF_morphism",
+      "backtester_to_proofForge_morphism",
+      "spl_to_proofForge_lax_morphism"
+    ],
+    "verdict": "CLEAN"
+  }
+}

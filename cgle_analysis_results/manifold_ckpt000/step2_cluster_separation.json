@@ -1,0 +1,8 @@
+{
+  "n_success": 3,
+  "n_fail": 147,
+  "separable": true,
+  "cv_accuracy": 0.98,
+  "cv_std": 0.0,
+  "pca_variance_explained_3": 0.5981017351150513
+}

@@ -1,0 +1,20 @@
+[package]
+name = "pf-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "ProofForge CLI: run experiments, verify SOS axioms, track evaluator"
+
+[[bin]]
+name = "proofforge"
+path = "src/main.rs"
+
+[dependencies]
+pf-core = { path = "../pf-core" }
+pf-lean = { path = "../pf-lean" }
+pf-agents = { path = "../pf-agents" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+rand = "0.8"

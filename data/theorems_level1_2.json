@@ -1,0 +1,49 @@
+{
+  "description": "ProofForge Level 1-2 curriculum: tactic arguments and two-step chains",
+  "version": "0.2.0",
+  "design_principle": "Each theorem requires exactly ONE new concept beyond Level 0 (single tactics). Level 1 = known tactic with argument. Level 2 = two-tactic chain where both tactics are already known.",
+  "tiers": [
+    {
+      "name": "level_1_tactic_args",
+      "description": "Known tactics with specific arguments. The model knows simp/exact/apply but must learn to provide arguments.",
+      "theorems": [
+        {"id": "l1_01", "statement": "theorem pf_l1_01 (n : Nat) : n + 0 = n := by", "known_proof": "simp [Nat.add_zero]", "difficulty": 5, "new_concept": "simp_with_lemma"},
+        {"id": "l1_02", "statement": "theorem pf_l1_02 (n : Nat) : 0 + n = n := by", "known_proof": "simp [Nat.zero_add]", "difficulty": 5, "new_concept": "simp_with_lemma"},
+        {"id": "l1_03", "statement": "theorem pf_l1_03 (a b : Nat) : a + b = b + a := by", "known_proof": "exact Nat.add_comm a b", "difficulty": 5, "new_concept": "exact_with_args"},
+        {"id": "l1_04", "statement": "theorem pf_l1_04 (a b c : Nat) : a + b + c = a + (b + c) := by", "known_proof": "exact Nat.add_assoc a b c", "difficulty": 5, "new_concept": "exact_with_args"},
+        {"id": "l1_05", "statement": "theorem pf_l1_05 (n : Nat) : n * 1 = n := by", "known_proof": "simp [Nat.mul_one]", "difficulty": 5, "new_concept": "simp_with_lemma"},
+        {"id": "l1_06", "statement": "theorem pf_l1_06 (n : Nat) : 1 * n = n := by", "known_proof": "simp [Nat.one_mul]", "difficulty": 5, "new_concept": "simp_with_lemma"},
+        {"id": "l1_07", "statement": "theorem pf_l1_07 (n : Nat) : n * 0 = 0 := by", "known_proof": "simp [Nat.mul_zero]", "difficulty": 5, "new_concept": "simp_with_lemma"},
+        {"id": "l1_08", "statement": "theorem pf_l1_08 (a b : Nat) : a * b = b * a := by", "known_proof": "exact Nat.mul_comm a b", "difficulty": 5, "new_concept": "exact_with_args"},
+        {"id": "l1_09", "statement": "theorem pf_l1_09 (n m : Nat) : n + m = m + n := by", "known_proof": "omega", "difficulty": 5, "new_concept": "omega_solves_comm"},
+        {"id": "l1_10", "statement": "theorem pf_l1_10 (n : Nat) : n - 0 = n := by", "known_proof": "simp [Nat.sub_zero]", "difficulty": 5, "new_concept": "simp_with_lemma"}
+      ]
+    },
+    {
+      "name": "level_2_two_step_chains",
+      "description": "Two-tactic chains. Both tactics are known from Level 0. The new skill is composition via semicolon or newline.",
+      "theorems": [
+        {"id": "l2_01", "statement": "theorem pf_l2_01 (p : Prop) : p -> p := by", "known_proof": "intro h; exact h", "difficulty": 6, "new_concept": "intro_exact_chain"},
+        {"id": "l2_02", "statement": "theorem pf_l2_02 (p q : Prop) : p -> q -> p := by", "known_proof": "intro hp; intro _; exact hp", "difficulty": 6, "new_concept": "intro_intro_exact"},
+        {"id": "l2_03", "statement": "theorem pf_l2_03 (p q : Prop) (hp : p) (hq : q) : p := by", "known_proof": "exact hp", "difficulty": 5, "new_concept": "exact_hypothesis"},
+        {"id": "l2_04", "statement": "theorem pf_l2_04 (p q : Prop) : p /\\ q -> p := by", "known_proof": "intro h; exact h.1", "difficulty": 6, "new_concept": "intro_projection"},
+        {"id": "l2_05", "statement": "theorem pf_l2_05 (p q : Prop) : p /\\ q -> q := by", "known_proof": "intro h; exact h.2", "difficulty": 6, "new_concept": "intro_projection"},
+        {"id": "l2_06", "statement": "theorem pf_l2_06 (p q : Prop) : p -> p \\/ q := by", "known_proof": "intro h; left; exact h", "difficulty": 6, "new_concept": "intro_left_exact"},
+        {"id": "l2_07", "statement": "theorem pf_l2_07 (p q : Prop) : q -> p \\/ q := by", "known_proof": "intro h; right; exact h", "difficulty": 6, "new_concept": "intro_right_exact"},
+        {"id": "l2_08", "statement": "theorem pf_l2_08 (p q : Prop) : p -> q -> p /\\ q := by", "known_proof": "intro hp hq; exact And.intro hp hq", "difficulty": 6, "new_concept": "intro_constructor"},
+        {"id": "l2_09", "statement": "theorem pf_l2_09 (n : Nat) : n = n + 0 := by", "known_proof": "simp; rfl", "difficulty": 6, "new_concept": "simp_then_rfl"},
+        {"id": "l2_10", "statement": "theorem pf_l2_10 (a b : Nat) (h : a = b) : b = a := by", "known_proof": "rw [h]", "difficulty": 6, "new_concept": "rw_hypothesis"},
+        {"id": "l2_11", "statement": "theorem pf_l2_11 (a b c : Nat) (h : a = b) : a + c = b + c := by", "known_proof": "rw [h]", "difficulty": 6, "new_concept": "rw_in_expression"},
+        {"id": "l2_12", "statement": "theorem pf_l2_12 (p : Prop) : p -> ~~p := by", "known_proof": "intro h hn; exact hn h", "difficulty": 7, "new_concept": "intro_apply_negation"},
+        {"id": "l2_13", "statement": "theorem pf_l2_13 (p q : Prop) : (p /\\ q) -> (q /\\ p) := by", "known_proof": "intro h; exact And.intro h.2 h.1", "difficulty": 7, "new_concept": "intro_reconstruct"},
+        {"id": "l2_14", "statement": "theorem pf_l2_14 (f : Nat -> Nat) (a b : Nat) (h : a = b) : f a = f b := by", "known_proof": "rw [h]", "difficulty": 6, "new_concept": "rw_congruence"},
+        {"id": "l2_15", "statement": "theorem pf_l2_15 (n : Nat) : 0 <= n := by", "known_proof": "exact Nat.zero_le n", "difficulty": 5, "new_concept": "exact_with_arg"},
+        {"id": "l2_16", "statement": "theorem pf_l2_16 (n : Nat) : n <= n + 1 := by", "known_proof": "omega", "difficulty": 5, "new_concept": "omega_inequality"},
+        {"id": "l2_17", "statement": "theorem pf_l2_17 (a b : Nat) (h : a <= b) : a <= b + 1 := by", "known_proof": "omega", "difficulty": 6, "new_concept": "omega_transitivity"},
+        {"id": "l2_18", "statement": "theorem pf_l2_18 (p : Prop) : ~~p -> ~~p := by", "known_proof": "intro h; exact h", "difficulty": 5, "new_concept": "identity_double_neg"},
+        {"id": "l2_19", "statement": "theorem pf_l2_19 (p q : Prop) (h : p -> q) (hp : p) : q := by", "known_proof": "exact h hp", "difficulty": 6, "new_concept": "exact_modus_ponens"},
+        {"id": "l2_20", "statement": "theorem pf_l2_20 (n m : Nat) (h : n = m) : n + 1 = m + 1 := by", "known_proof": "rw [h]", "difficulty": 6, "new_concept": "rw_successor"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[package]
+name = "pf-execution"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Deterministic execution layer: Lean 4 verified theorem -> trade action translation"
+
+[dependencies]
+pf-core = { path = "../pf-core" }
+serde = { workspace = true }
+thiserror = { workspace = true }

@@ -1,0 +1,15 @@
+[package]
+name = "pf-lean"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Lean 4 type checker integration: binary reward oracle for ProofForge"
+
+[dependencies]
+pf-core = { path = "../pf-core" }
+tokio = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+wait-timeout = "0.2"
+tempfile = "3"

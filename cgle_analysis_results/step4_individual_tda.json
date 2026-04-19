@@ -1,0 +1,88 @@
+{
+  "n_sampled": 10,
+  "real_h1_mean": 8.182767486572265,
+  "null_rw_h1_mean": 0.0,
+  "null_shuffle_h1_mean": 8.182767486572265,
+  "per_trajectory": [
+    {
+      "trajectory_idx": 0,
+      "theorem_id": "t1_01",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 4.784183502197266,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 4.784183502197266
+    },
+    {
+      "trajectory_idx": 1,
+      "theorem_id": "t1_01",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 5.433067321777344,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 5.433067321777344
+    },
+    {
+      "trajectory_idx": 2,
+      "theorem_id": "t1_01",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 10.49398422241211,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 10.49398422241211
+    },
+    {
+      "trajectory_idx": 3,
+      "theorem_id": "t1_01",
+      "n_steps": 78,
+      "real_h1_max_lifetime": 7.796821594238281,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 7.796821594238281
+    },
+    {
+      "trajectory_idx": 4,
+      "theorem_id": "t1_01",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 12.412723541259766,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 12.412723541259766
+    },
+    {
+      "trajectory_idx": 5,
+      "theorem_id": "t1_01",
+      "n_steps": 33,
+      "real_h1_max_lifetime": 5.20916748046875,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 5.20916748046875
+    },
+    {
+      "trajectory_idx": 6,
+      "theorem_id": "t1_02",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 6.713253021240234,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 6.713253021240234
+    },
+    {
+      "trajectory_idx": 7,
+      "theorem_id": "t1_02",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 8.389106750488281,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 8.389106750488281
+    },
+    {
+      "trajectory_idx": 8,
+      "theorem_id": "t1_02",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 8.773971557617188,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 8.773971557617188
+    },
+    {
+      "trajectory_idx": 9,
+      "theorem_id": "t1_02",
+      "n_steps": 512,
+      "real_h1_max_lifetime": 11.821395874023438,
+      "null_rw_h1_max_lifetime": 0.0,
+      "null_shuffle_h1_max_lifetime": 11.821395874023438
+    }
+  ]
+}

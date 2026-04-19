@@ -1,0 +1,33 @@
+{
+  "per_pca_dim": [
+    {
+      "pca_dim": 10,
+      "n_h0_components": 1,
+      "n_h1_significant": 13,
+      "n_h2_significant": 0
+    },
+    {
+      "pca_dim": 20,
+      "n_h0_components": 1,
+      "n_h1_significant": 8,
+      "n_h2_significant": 1
+    },
+    {
+      "pca_dim": 50,
+      "n_h0_components": 1,
+      "n_h1_significant": 10,
+      "n_h2_significant": 2
+    },
+    {
+      "pca_dim": 100,
+      "n_h0_components": 1,
+      "n_h1_significant": 5,
+      "n_h2_significant": 2
+    }
+  ],
+  "h1_cv": 0.3239417718998565,
+  "h1_stable": true,
+  "h2_cv": 0.66332495754042,
+  "h2_stable": false,
+  "interpretation": "9 significant H1 loops on average \u2014 complex topology with multiple cycles."
+}

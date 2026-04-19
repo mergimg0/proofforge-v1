@@ -1,0 +1,11 @@
+{
+  "n_trajectories": 150,
+  "n_success": 12,
+  "n_fail": 138,
+  "d_hidden_min": 4096,
+  "d_hidden_max": 4096,
+  "n_steps_mean": 152.96,
+  "n_steps_min": 2,
+  "n_steps_max": 256,
+  "temperature_mean": 0.7333333333333333
+}

@@ -1,0 +1,485 @@
+{
+  "n_checkpoints": 4,
+  "n_theorems": 50,
+  "checkpoint_steps": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "checkpoints": [
+    {
+      "step": 0,
+      "n_records": 150,
+      "pass_rate": 0.02,
+      "mean_success_length": 115.66666666666667,
+      "failure_mode_counts": {
+        "TACTIC_ATTEMPT": 16,
+        "REPETITION": 59,
+        "COMMENTARY": 36,
+        "OTHER": 33,
+        "DEGENERATE": 3
+      },
+      "solved_theorems": [
+        "theorem pf_t1_12 : 7 - 3 = 4 := by",
+        "theorem pf_t2_01 (n : Nat) : n = n := by",
+        "theorem pf_t3_01 (n : Nat) : n + 0 = n := by"
+      ],
+      "tier_pass_rates": {
+        "unknown": 0.06
+      }
+    },
+    {
+      "step": 5,
+      "n_records": 150,
+      "pass_rate": 0.08,
+      "mean_success_length": 131.0,
+      "failure_mode_counts": {
+        "TACTIC_ATTEMPT": 15,
+        "REPETITION": 58,
+        "COMMENTARY": 33,
+        "OTHER": 29,
+        "DEGENERATE": 3
+      },
+      "solved_theorems": [
+        "theorem pf_t1_01 : True := by",
+        "theorem pf_t1_04 : 10 * 10 = 100 := by",
+        "theorem pf_t1_05 : 0 = 0 := by",
+        "theorem pf_t1_08 : (2 : Nat) \u2264 2 := by",
+        "theorem pf_t1_09 : \u00ac False := by",
+        "theorem pf_t1_10 : True \u2227 True := by",
+        "theorem pf_t1_11 : True \u2228 False := by",
+        "theorem pf_t1_15 : 2 ^ 3 = 8 := by",
+        "theorem pf_t2_04 (a b : Nat) : a + b = b + a := by",
+        "theorem pf_t2_05 (n : Nat) : n * 1 = n := by",
+        "theorem pf_t3_08 (a b : Nat) : a + Nat.succ b = Nat.succ (a + b) := by",
+        "theorem pf_t4_02 (p q : Prop) : (p \u2227 q) \u2192 (q \u2227 p) := by"
+      ],
+      "tier_pass_rates": {
+        "unknown": 0.24
+      }
+    },
+    {
+      "step": 10,
+      "n_records": 150,
+      "pass_rate": 0.09333333333333334,
+      "mean_success_length": 117.0,
+      "failure_mode_counts": {
+        "TACTIC_ATTEMPT": 13,
+        "REPETITION": 62,
+        "COMMENTARY": 22,
+        "OTHER": 35,
+        "DEGENERATE": 4
+      },
+      "solved_theorems": [
+        "theorem pf_t1_02 : 1 = 1 := by",
+        "theorem pf_t1_05 : 0 = 0 := by",
+        "theorem pf_t1_06 : Nat.succ 0 = 1 := by",
+        "theorem pf_t1_09 : \u00ac False := by",
+        "theorem pf_t1_11 : True \u2228 False := by",
+        "theorem pf_t1_12 : 7 - 3 = 4 := by",
+        "theorem pf_t1_13 : Nat.zero = 0 := by",
+        "theorem pf_t1_15 : 2 ^ 3 = 8 := by",
+        "theorem pf_t2_04 (a b : Nat) : a + b = b + a := by",
+        "theorem pf_t2_06 (n : Nat) : 1 * n = n := by",
+        "theorem pf_t2_09 (p q : Prop) : p \u2227 q \u2192 p := by",
+        "theorem pf_t3_03 (l : List Nat) : l.length \u2265 0 := by",
+        "theorem pf_t3_10 (a b c : Nat) : (a + b) * c = a * c + b * c := by"
+      ],
+      "tier_pass_rates": {
+        "unknown": 0.26
+      }
+    },
+    {
+      "step": 20,
+      "n_records": 150,
+      "pass_rate": 0.08,
+      "mean_success_length": 134.75,
+      "failure_mode_counts": {
+        "TACTIC_ATTEMPT": 19,
+        "REPETITION": 51,
+        "COMMENTARY": 26,
+        "OTHER": 37,
+        "DEGENERATE": 5
+      },
+      "solved_theorems": [
+        "theorem pf_t1_03 : 2 + 3 = 5 := by",
+        "theorem pf_t1_05 : 0 = 0 := by",
+        "theorem pf_t1_06 : Nat.succ 0 = 1 := by",
+        "theorem pf_t1_10 : True \u2227 True := by",
+        "theorem pf_t1_13 : Nat.zero = 0 := by",
+        "theorem pf_t2_01 (n : Nat) : n = n := by",
+        "theorem pf_t2_07 (p : Prop) : p \u2192 p := by",
+        "theorem pf_t2_12 (n : Nat) : n * 0 = 0 := by",
+        "theorem pf_t2_15 (n : Nat) : 0 \u2264 n := by",
+        "theorem pf_t3_07 (n : Nat) : n + 1 = Nat.succ n := by",
+        "theorem pf_t3_08 (a b : Nat) : a + Nat.succ b = Nat.succ (a + b) := by"
+      ],
+      "tier_pass_rates": {
+        "unknown": 0.22
+      }
+    }
+  ],
+  "binary_matrix": {
+    "theorems": [
+      "theorem pf_t1_01 : True := by",
+      "theorem pf_t1_02 : 1 = 1 := by",
+      "theorem pf_t1_03 : 2 + 3 = 5 := by",
+      "theorem pf_t1_04 : 10 * 10 = 100 := by",
+      "theorem pf_t1_05 : 0 = 0 := by",
+      "theorem pf_t1_06 : Nat.succ 0 = 1 := by",
+      "theorem pf_t1_07 : (3 : Nat) < 5 := by",
+      "theorem pf_t1_08 : (2 : Nat) \u2264 2 := by",
+      "theorem pf_t1_09 : \u00ac False := by",
+      "theorem pf_t1_10 : True \u2227 True := by",
+      "theorem pf_t1_11 : True \u2228 False := by",
+      "theorem pf_t1_12 : 7 - 3 = 4 := by",
+      "theorem pf_t1_13 : Nat.zero = 0 := by",
+      "theorem pf_t1_14 : (1 + 2) * 3 = 9 := by",
+      "theorem pf_t1_15 : 2 ^ 3 = 8 := by",
+      "theorem pf_t2_01 (n : Nat) : n = n := by",
+      "theorem pf_t2_02 (n : Nat) : 0 + n = n := by",
+      "theorem pf_t2_03 (n : Nat) : n + 0 = n := by",
+      "theorem pf_t2_04 (a b : Nat) : a + b = b + a := by",
+      "theorem pf_t2_05 (n : Nat) : n * 1 = n := by",
+      "theorem pf_t2_06 (n : Nat) : 1 * n = n := by",
+      "theorem pf_t2_07 (p : Prop) : p \u2192 p := by",
+      "theorem pf_t2_08 (p q : Prop) : p \u2192 q \u2192 p \u2227 q := by",
+      "theorem pf_t2_09 (p q : Prop) : p \u2227 q \u2192 p := by",
+      "theorem pf_t2_10 (p q : Prop) : p \u2227 q \u2192 q := by",
+      "theorem pf_t2_11 (a b c : Nat) : a + b + c = a + (b + c) := by",
+      "theorem pf_t2_12 (n : Nat) : n * 0 = 0 := by",
+      "theorem pf_t2_13 (p : Prop) : p \u2192 \u00ac\u00acp := by",
+      "theorem pf_t2_14 (n m : Nat) : n \u2264 n + m := by",
+      "theorem pf_t2_15 (n : Nat) : 0 \u2264 n := by",
+      "theorem pf_t3_01 (n : Nat) : n + 0 = n := by",
+      "theorem pf_t3_02 : \u2200 n : Nat, 0 + n = n := by",
+      "theorem pf_t3_03 (l : List Nat) : l.length \u2265 0 := by",
+      "theorem pf_t3_04 (l : List \u03b1) : [].append l = l := by",
+      "theorem pf_t3_05 (n : Nat) : n + Nat.succ 0 = Nat.succ n := by",
+      "theorem pf_t3_06 (n : Nat) : Nat.succ n \u2260 0 := by",
+      "theorem pf_t3_07 (n : Nat) : n + 1 = Nat.succ n := by",
+      "theorem pf_t3_08 (a b : Nat) : a + Nat.succ b = Nat.succ (a + b) := by",
+      "theorem pf_t3_09 (n : Nat) : n * 2 = n + n := by",
+      "theorem pf_t3_10 (a b c : Nat) : (a + b) * c = a * c + b * c := by",
+      "theorem pf_t4_01 (p q r : Prop) : (p \u2192 q) \u2192 (q \u2192 r) \u2192 p \u2192 r := by",
+      "theorem pf_t4_02 (p q : Prop) : (p \u2227 q) \u2192 (q \u2227 p) := by",
+      "theorem pf_t4_03 (p q : Prop) : p \u2228 q \u2192 q \u2228 p := by",
+      "theorem pf_t4_04 (p q r : Prop) : p \u2227 (q \u2228 r) \u2192 (p \u2227 q) \u2228 (p \u2227 r) := by",
+      "theorem pf_t4_05 (n m : Nat) : n \u2264 m \u2192 n \u2264 m + 1 := by",
+      "theorem pf_t4_06 (n : Nat) : n = 0 \u2228 \u2203 m, n = Nat.succ m := by",
+      "theorem pf_t4_07 (p : Prop) : \u00ac(p \u2227 \u00acp) := by",
+      "theorem pf_t4_08 (a b : Nat) : a \u2264 b \u2192 b \u2264 a \u2192 a = b := by",
+      "theorem pf_t4_09 (f : \u03b1 \u2192 \u03b2) (a b : \u03b1) : a = b \u2192 f a = f b := by",
+      "theorem pf_t4_10 (p q : Prop) : \u00ac(p \u2228 q) \u2192 \u00acp \u2227 \u00acq := by"
+    ],
+    "steps": [
+      0,
+      5,
+      10,
+      20
+    ],
+    "matrix": [
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  }
+}

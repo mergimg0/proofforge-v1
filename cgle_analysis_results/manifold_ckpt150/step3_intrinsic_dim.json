@@ -1,0 +1,9 @@
+{
+  "d_int_2nn_mean": 5.354121375481031,
+  "d_int_2nn_median": 5.283205358105338,
+  "n_trajectories_used": 150,
+  "pca_dims_90pct": 22,
+  "pca_dims_95pct": 37,
+  "pca_dims_99pct": 74,
+  "d_hidden": 4096
+}

@@ -1,0 +1,1288 @@
+{
+  "description": "ProofForge Radical Categorical Curriculum \u2014 Levels 3 through 12. Each level = subcategory closed under morphism composition. Difficulty = categorical depth, not proof length.",
+  "version": "0.3.0",
+  "total_theorems": 98,
+  "design_principle": "Level L theorems genuinely require tactics from the Level L subcategory and cannot be solved by lower-level tactics alone. Custom recursive definitions prevent simp/omega monoculture at Level 4+. Classical axioms required at Level 5+.",
+  "categorical_framework": {
+    "level_0": "Terminal objects: rfl, trivial, decide",
+    "level_1": "Products: simp, omega",
+    "level_2": "Morphisms: intro, exact, rw",
+    "level_3": "Coproducts: cases (eliminate \u2228, Nat, Bool, Option)",
+    "level_4": "Initial algebras: induction (recursive reasoning on Nat, List)",
+    "level_5": "Exponentials: by_contra, Classical.em (classical logic)",
+    "level_6": "Composition: have, calc, apply (intermediate objects)",
+    "level_7": "Universal properties: constructor, use (witness construction)",
+    "level_8": "Natural transformations: funext, ext, congr (extensionality)",
+    "level_9": "2-morphisms: conv, simp only, targeted rw (controlled rewriting)",
+    "level_10": "Functors: cross-domain Mathlib import",
+    "level_11": "Free objects: construction discovery",
+    "level_12": "Adjunctions: strategy invention"
+  },
+  "definitions": "-- Custom recursive definitions for Level 4+ theorems.\n-- The training pipeline MUST load these into the Lean REPL\n-- before checking any Level 4+ theorem.\n\ndef myDouble : Nat \u2192 Nat\n  | 0 => 0\n  | n + 1 => myDouble n + 2\n\ndef myPow2 : Nat \u2192 Nat\n  | 0 => 1\n  | n + 1 => 2 * myPow2 n\n\ndef myLen {\u03b1 : Type _} : List \u03b1 \u2192 Nat\n  | [] => 0\n  | _ :: xs => 1 + myLen xs\n\ndef myApp {\u03b1 : Type _} : List \u03b1 \u2192 List \u03b1 \u2192 List \u03b1\n  | [], ys => ys\n  | x :: xs, ys => x :: myApp xs ys\n\ndef myRev {\u03b1 : Type _} : List \u03b1 \u2192 List \u03b1\n  | [] => []\n  | x :: xs => myApp (myRev xs) [x]\n\ndef myMap {\u03b1 \u03b2 : Type _} (f : \u03b1 \u2192 \u03b2) : List \u03b1 \u2192 List \u03b2\n  | [] => []\n  | x :: xs => f x :: myMap f xs\n\ndef myFilter {\u03b1 : Type _} (p : \u03b1 \u2192 Bool) : List \u03b1 \u2192 List \u03b1\n  | [] => []\n  | x :: xs => if p x then x :: myFilter p xs else myFilter p xs\n\ndef myAll {\u03b1 : Type _} (p : \u03b1 \u2192 Bool) : List \u03b1 \u2192 Bool\n  | [] => true\n  | x :: xs => p x && myAll p xs\n\ndef myIter {\u03b1 : Type _} (f : \u03b1 \u2192 \u03b1) : Nat \u2192 \u03b1 \u2192 \u03b1\n  | 0, x => x\n  | n + 1, x => f (myIter f n x)",
+  "tiers": [
+    {
+      "name": "level_3_coproducts",
+      "description": "Cases / Coproducts \u2014 Eliminate disjunctions and type constructors via case analysis. The universal property of the coproduct: to map out of C\u2081 + C\u2082, handle each injection separately.",
+      "categorical_concept": "coproduct",
+      "requires_definitions": false,
+      "theorems": [
+        {
+          "id": "l3_01",
+          "statement": "theorem pf_l3_01 (p q : Prop) : p \u2228 q \u2192 q \u2228 p := by",
+          "known_proof": "intro h; cases h with\n| inl hp => right; exact hp\n| inr hq => left; exact hq",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "right",
+            "left",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_02",
+          "statement": "theorem pf_l3_02 (p q r : Prop) : p \u2228 q \u2192 (p \u2192 r) \u2192 (q \u2192 r) \u2192 r := by",
+          "known_proof": "intro h hpr hqr; cases h with\n| inl hp => exact hpr hp\n| inr hq => exact hqr hq",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_03",
+          "statement": "theorem pf_l3_03 (p q r : Prop) : p \u2227 (q \u2228 r) \u2192 (p \u2227 q) \u2228 (p \u2227 r) := by",
+          "known_proof": "intro \u27e8hp, hqr\u27e9; cases hqr with\n| inl hq => left; exact \u27e8hp, hq\u27e9\n| inr hr => right; exact \u27e8hp, hr\u27e9",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_04",
+          "statement": "theorem pf_l3_04 (p q r : Prop) : (p \u2228 q) \u2228 r \u2192 p \u2228 (q \u2228 r) := by",
+          "known_proof": "intro h; cases h with\n| inl hpq =>\n  cases hpq with\n  | inl hp => left; exact hp\n  | inr hq => right; left; exact hq\n| inr hr => right; right; exact hr",
+          "difficulty": 9,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_05",
+          "statement": "theorem pf_l3_05 (p q r : Prop) : p \u2228 (q \u2228 r) \u2192 (p \u2228 q) \u2228 r := by",
+          "known_proof": "intro h; cases h with\n| inl hp => left; left; exact hp\n| inr hqr =>\n  cases hqr with\n  | inl hq => left; right; exact hq\n  | inr hr => right; exact hr",
+          "difficulty": 9,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_06",
+          "statement": "theorem pf_l3_06 (p q : Prop) : p \u2228 q \u2192 \u00acp \u2192 q := by",
+          "known_proof": "intro h hnp; cases h with\n| inl hp => exact absurd hp hnp\n| inr hq => exact hq",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact",
+            "absurd"
+          ]
+        },
+        {
+          "id": "l3_07",
+          "statement": "theorem pf_l3_07 (p q : Prop) : p \u2228 q \u2192 \u00acq \u2192 p := by",
+          "known_proof": "intro h hnq; cases h with\n| inl hp => exact hp\n| inr hq => exact absurd hq hnq",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact",
+            "absurd"
+          ]
+        },
+        {
+          "id": "l3_08",
+          "statement": "theorem pf_l3_08 (p q r s : Prop) : (p \u2192 r) \u2192 (q \u2192 s) \u2192 p \u2228 q \u2192 r \u2228 s := by",
+          "known_proof": "intro hpr hqs h; cases h with\n| inl hp => left; exact hpr hp\n| inr hq => right; exact hqs hq",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_09",
+          "statement": "theorem pf_l3_09 (p q : Prop) : \u00acp \u2227 \u00acq \u2192 \u00ac(p \u2228 q) := by",
+          "known_proof": "intro \u27e8hnp, hnq\u27e9 h; cases h with\n| inl hp => exact hnp hp\n| inr hq => exact hnq hq",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_10",
+          "statement": "theorem pf_l3_10 (p q r : Prop) : (p \u2228 q) \u2227 (p \u2228 r) \u2192 p \u2228 (q \u2227 r) := by",
+          "known_proof": "intro \u27e8hpq, hpr\u27e9; cases hpq with\n| inl hp => left; exact hp\n| inr hq =>\n  cases hpr with\n  | inl hp => left; exact hp\n  | inr hr => right; exact \u27e8hq, hr\u27e9",
+          "difficulty": 9,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_11",
+          "statement": "theorem pf_l3_11 (n : Nat) : n = 0 \u2228 \u2203 m, n = m + 1 := by",
+          "known_proof": "cases n with\n| zero => left; rfl\n| succ m => right; exact \u27e8m, rfl\u27e9",
+          "difficulty": 8,
+          "required_tactics": [
+            "cases",
+            "left",
+            "right",
+            "rfl",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_12",
+          "statement": "theorem pf_l3_12 (n : Nat) : n = 0 \u2228 0 < n := by",
+          "known_proof": "cases n with\n| zero => left; rfl\n| succ m => right; omega",
+          "difficulty": 8,
+          "required_tactics": [
+            "cases",
+            "left",
+            "right",
+            "rfl",
+            "omega"
+          ]
+        },
+        {
+          "id": "l3_13",
+          "statement": "theorem pf_l3_13 (b : Bool) : b = true \u2228 b = false := by",
+          "known_proof": "cases b with\n| true => left; rfl\n| false => right; rfl",
+          "difficulty": 8,
+          "required_tactics": [
+            "cases",
+            "left",
+            "right",
+            "rfl"
+          ]
+        },
+        {
+          "id": "l3_14",
+          "statement": "theorem pf_l3_14 {\u03b1 : Type*} (o : Option \u03b1) : o = none \u2228 \u2203 a, o = some a := by",
+          "known_proof": "cases o with\n| none => left; rfl\n| some a => right; exact \u27e8a, rfl\u27e9",
+          "difficulty": 8,
+          "required_tactics": [
+            "cases",
+            "left",
+            "right",
+            "rfl",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_15",
+          "statement": "theorem pf_l3_15 (n : Nat) : n \u2260 0 \u2192 \u2203 m, n = m + 1 := by",
+          "known_proof": "intro h; cases n with\n| zero => exact absurd rfl h\n| succ m => exact \u27e8m, rfl\u27e9",
+          "difficulty": 9,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact",
+            "absurd",
+            "rfl"
+          ]
+        },
+        {
+          "id": "l3_16",
+          "statement": "theorem pf_l3_16 (p q r : Prop) : (p \u2227 q) \u2228 (p \u2227 r) \u2192 p := by",
+          "known_proof": "intro h; cases h with\n| inl hpq => exact hpq.1\n| inr hpr => exact hpr.1",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_17",
+          "statement": "theorem pf_l3_17 (p : Prop) : p \u2228 p \u2192 p := by",
+          "known_proof": "intro h; cases h with\n| inl hp => exact hp\n| inr hp => exact hp",
+          "difficulty": 8,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact"
+          ]
+        },
+        {
+          "id": "l3_18",
+          "statement": "theorem pf_l3_18 (p q : Prop) : (p \u2228 q) \u2192 (\u00acp \u2228 \u00acq) \u2192 (p \u2227 \u00acq) \u2228 (\u00acp \u2227 q) := by",
+          "known_proof": "intro hpq hnpnq\ncases hpq with\n| inl hp =>\n  cases hnpnq with\n  | inl hnp => exact absurd hp hnp\n  | inr hnq => left; exact \u27e8hp, hnq\u27e9\n| inr hq =>\n  cases hnpnq with\n  | inl hnp => right; exact \u27e8hnp, hq\u27e9\n  | inr hnq => exact absurd hq hnq",
+          "difficulty": 9,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "left",
+            "right",
+            "exact",
+            "absurd"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_4_initial_algebras",
+      "description": "Induction / Initial Algebras \u2014 Prove properties of recursively defined functions by structural induction. The unique morphism from the initial algebra (Nat, List) to any algebra with matching structure.",
+      "categorical_concept": "initial_algebra",
+      "requires_definitions": true,
+      "theorems": [
+        {
+          "id": "l4_01",
+          "statement": "theorem pf_l4_01 : \u2200 n, myDouble n = 2 * n := by",
+          "known_proof": "intro n\ninduction n with\n| zero => rfl\n| succ n ih => simp [myDouble, ih]; omega",
+          "difficulty": 10,
+          "required_tactics": [
+            "intro",
+            "induction",
+            "rfl",
+            "simp",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_02",
+          "statement": "theorem pf_l4_02 : \u2200 n, 0 < myPow2 n := by",
+          "known_proof": "intro n\ninduction n with\n| zero => simp [myPow2]\n| succ n ih => simp [myPow2]; omega",
+          "difficulty": 10,
+          "required_tactics": [
+            "intro",
+            "induction",
+            "simp",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_03",
+          "statement": "theorem pf_l4_03 {\u03b1 : Type*} (xs : List \u03b1) : myApp xs [] = xs := by",
+          "known_proof": "induction xs with\n| nil => rfl\n| cons x xs ih => simp [myApp, ih]",
+          "difficulty": 10,
+          "required_tactics": [
+            "induction",
+            "rfl",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_04",
+          "statement": "theorem pf_l4_04 {\u03b1 : Type*} (xs ys zs : List \u03b1) : myApp (myApp xs ys) zs = myApp xs (myApp ys zs) := by",
+          "known_proof": "induction xs with\n| nil => simp [myApp]\n| cons x xs ih => simp [myApp, ih]",
+          "difficulty": 10,
+          "required_tactics": [
+            "induction",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_05",
+          "statement": "theorem pf_l4_05 {\u03b1 : Type*} (xs ys : List \u03b1) : myLen (myApp xs ys) = myLen xs + myLen ys := by",
+          "known_proof": "induction xs with\n| nil => simp [myApp, myLen]\n| cons x xs ih => simp [myApp, myLen, ih]; omega",
+          "difficulty": 10,
+          "required_tactics": [
+            "induction",
+            "simp",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_06",
+          "statement": "theorem pf_l4_06 : \u2200 n m, myDouble (n + m) = myDouble n + myDouble m := by",
+          "known_proof": "intro n m\ninduction n with\n| zero => simp [myDouble]\n| succ n ih => simp [myDouble, ih]; omega",
+          "difficulty": 10,
+          "required_tactics": [
+            "intro",
+            "induction",
+            "simp",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_07",
+          "statement": "theorem pf_l4_07 {\u03b1 \u03b2 : Type*} (f : \u03b1 \u2192 \u03b2) (xs : List \u03b1) : myLen (myMap f xs) = myLen xs := by",
+          "known_proof": "induction xs with\n| nil => simp [myMap, myLen]\n| cons x xs ih => simp [myMap, myLen, ih]",
+          "difficulty": 10,
+          "required_tactics": [
+            "induction",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_08",
+          "statement": "theorem pf_l4_08 {\u03b1 : Type*} (xs : List \u03b1) : myMap id xs = xs := by",
+          "known_proof": "induction xs with\n| nil => simp [myMap]\n| cons x xs ih => simp [myMap, ih]",
+          "difficulty": 10,
+          "required_tactics": [
+            "induction",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_09",
+          "statement": "theorem pf_l4_09 {\u03b1 \u03b2 \u03b3 : Type*} (f : \u03b2 \u2192 \u03b3) (g : \u03b1 \u2192 \u03b2) (xs : List \u03b1) : myMap f (myMap g xs) = myMap (f \u2218 g) xs := by",
+          "known_proof": "induction xs with\n| nil => simp [myMap]\n| cons x xs ih => simp [myMap, Function.comp, ih]",
+          "difficulty": 11,
+          "required_tactics": [
+            "induction",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_10",
+          "statement": "theorem pf_l4_10 {\u03b1 \u03b2 : Type*} (f : \u03b1 \u2192 \u03b2) (xs ys : List \u03b1) : myMap f (myApp xs ys) = myApp (myMap f xs) (myMap f ys) := by",
+          "known_proof": "induction xs with\n| nil => simp [myApp, myMap]\n| cons x xs ih => simp [myApp, myMap, ih]",
+          "difficulty": 11,
+          "required_tactics": [
+            "induction",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_11",
+          "statement": "theorem pf_l4_11 {\u03b1 : Type*} (p : \u03b1 \u2192 Bool) (xs : List \u03b1) : myLen (myFilter p xs) \u2264 myLen xs := by",
+          "known_proof": "induction xs with\n| nil => simp [myFilter, myLen]\n| cons x xs ih =>\n  simp only [myFilter]\n  split\n  \u00b7 simp [myLen]; omega\n  \u00b7 simp [myLen]; omega",
+          "difficulty": 11,
+          "required_tactics": [
+            "induction",
+            "simp",
+            "split",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_12",
+          "statement": "theorem pf_l4_12 {\u03b1 : Type*} (xs : List \u03b1) : myAll (fun _ => true) xs = true := by",
+          "known_proof": "induction xs with\n| nil => rfl\n| cons x xs ih => simp [myAll, ih]",
+          "difficulty": 10,
+          "required_tactics": [
+            "induction",
+            "rfl",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_13",
+          "statement": "theorem pf_l4_13 : \u2200 n, n \u2264 myDouble n := by",
+          "known_proof": "intro n\ninduction n with\n| zero => simp [myDouble]\n| succ n ih => simp [myDouble]; omega",
+          "difficulty": 10,
+          "required_tactics": [
+            "intro",
+            "induction",
+            "simp",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_14",
+          "statement": "theorem pf_l4_14 {\u03b1 : Type*} (p : \u03b1 \u2192 Bool) (xs ys : List \u03b1) : myFilter p (myApp xs ys) = myApp (myFilter p xs) (myFilter p ys) := by",
+          "known_proof": "induction xs with\n| nil => simp [myApp, myFilter]\n| cons x xs ih =>\n  simp only [myApp, myFilter]\n  split\n  \u00b7 simp [myApp, ih]\n  \u00b7 exact ih",
+          "difficulty": 11,
+          "required_tactics": [
+            "induction",
+            "simp",
+            "split",
+            "exact"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l4_15",
+          "statement": "theorem pf_l4_15 {\u03b1 : Type*} (xs : List \u03b1) : myApp [] xs = xs := by",
+          "known_proof": "simp [myApp]",
+          "difficulty": 10,
+          "required_tactics": [
+            "simp"
+          ],
+          "_requires_definitions": true
+        }
+      ]
+    },
+    {
+      "name": "level_5_exponentials",
+      "description": "Classical Logic / Exponentials \u2014 Proof by contradiction, excluded middle, De Morgan's laws (classical direction). Exponential objects in category theory: function spaces, negation as the exponential A \u2192 \u22a5.",
+      "categorical_concept": "exponential",
+      "requires_definitions": false,
+      "theorems": [
+        {
+          "id": "l5_01",
+          "statement": "theorem pf_l5_01 (p : Prop) : \u00ac\u00acp \u2192 p := by",
+          "known_proof": "intro h; by_contra hn; exact h hn",
+          "difficulty": 12,
+          "required_tactics": [
+            "intro",
+            "by_contra",
+            "exact"
+          ]
+        },
+        {
+          "id": "l5_02",
+          "statement": "theorem pf_l5_02 (p q : Prop) : (\u00acq \u2192 \u00acp) \u2192 p \u2192 q := by",
+          "known_proof": "intro h hp; by_contra hnq; exact h hnq hp",
+          "difficulty": 12,
+          "required_tactics": [
+            "intro",
+            "by_contra",
+            "exact"
+          ]
+        },
+        {
+          "id": "l5_03",
+          "statement": "theorem pf_l5_03 (p q : Prop) : \u00ac(p \u2227 q) \u2192 \u00acp \u2228 \u00acq := by",
+          "known_proof": "intro h\ncases Classical.em p with\n| inl hp => right; intro hq; exact h \u27e8hp, hq\u27e9\n| inr hnp => left; exact hnp",
+          "difficulty": 12,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "Classical.em",
+            "right",
+            "left",
+            "exact"
+          ]
+        },
+        {
+          "id": "l5_04",
+          "statement": "theorem pf_l5_04 (p : Prop) : p \u2228 \u00acp := by",
+          "known_proof": "exact Classical.em p",
+          "difficulty": 12,
+          "required_tactics": [
+            "exact",
+            "Classical.em"
+          ]
+        },
+        {
+          "id": "l5_05",
+          "statement": "theorem pf_l5_05 (p q : Prop) : ((p \u2192 q) \u2192 p) \u2192 p := by",
+          "known_proof": "intro h; by_contra hnp; exact hnp (h (fun hp => absurd hp hnp))",
+          "difficulty": 13,
+          "required_tactics": [
+            "intro",
+            "by_contra",
+            "exact",
+            "absurd"
+          ]
+        },
+        {
+          "id": "l5_06",
+          "statement": "theorem pf_l5_06 (p q : Prop) : \u00ac(p \u2192 q) \u2192 p \u2227 \u00acq := by",
+          "known_proof": "intro h\nconstructor\n\u00b7 by_contra hnp; exact h (fun hp => absurd hp hnp)\n\u00b7 intro hq; exact h (fun _ => hq)",
+          "difficulty": 13,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "by_contra",
+            "exact",
+            "absurd"
+          ]
+        },
+        {
+          "id": "l5_07",
+          "statement": "theorem pf_l5_07 (p q : Prop) : (p \u2192 q) \u2192 (\u00acp \u2228 q) := by",
+          "known_proof": "intro h\ncases Classical.em p with\n| inl hp => right; exact h hp\n| inr hnp => left; exact hnp",
+          "difficulty": 12,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "Classical.em",
+            "right",
+            "left",
+            "exact"
+          ]
+        },
+        {
+          "id": "l5_08",
+          "statement": "theorem pf_l5_08 {\u03b1 : Type*} (p : \u03b1 \u2192 Prop) : \u00ac(\u2200 x, p x) \u2192 \u2203 x, \u00acp x := by",
+          "known_proof": "intro h\nby_contra hn\napply h\nintro x\nby_contra hnpx\nexact hn \u27e8x, hnpx\u27e9",
+          "difficulty": 13,
+          "required_tactics": [
+            "intro",
+            "by_contra",
+            "apply",
+            "exact"
+          ]
+        },
+        {
+          "id": "l5_09",
+          "statement": "theorem pf_l5_09 (p q : Prop) : \u00ac(p \u2227 q) \u2194 \u00acp \u2228 \u00acq := by",
+          "known_proof": "constructor\n\u00b7 intro h\n  cases Classical.em p with\n  | inl hp => right; intro hq; exact h \u27e8hp, hq\u27e9\n  | inr hnp => left; exact hnp\n\u00b7 intro h \u27e8hp, hq\u27e9\n  cases h with\n  | inl hnp => exact hnp hp\n  | inr hnq => exact hnq hq",
+          "difficulty": 13,
+          "required_tactics": [
+            "constructor",
+            "intro",
+            "cases",
+            "Classical.em",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l5_10",
+          "statement": "theorem pf_l5_10 (p q : Prop) : (p \u2192 q) \u2228 (q \u2192 p) := by",
+          "known_proof": "cases Classical.em p with\n| inl hp =>\n  cases Classical.em q with\n  | inl hq => left; intro _; exact hq\n  | inr hnq => right; intro hq; exact absurd hq hnq\n| inr hnp => left; intro hp; exact absurd hp hnp",
+          "difficulty": 13,
+          "required_tactics": [
+            "cases",
+            "Classical.em",
+            "left",
+            "right",
+            "intro",
+            "exact",
+            "absurd"
+          ]
+        },
+        {
+          "id": "l5_11",
+          "statement": "theorem pf_l5_11 (p q r : Prop) : (p \u2192 q \u2228 r) \u2192 (p \u2192 q) \u2228 (p \u2192 r) := by",
+          "known_proof": "intro h\ncases Classical.em p with\n| inl hp =>\n  cases h hp with\n  | inl hq => left; intro _; exact hq\n  | inr hr => right; intro _; exact hr\n| inr hnp => left; intro hp; exact absurd hp hnp",
+          "difficulty": 13,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "Classical.em",
+            "left",
+            "right",
+            "exact",
+            "absurd"
+          ]
+        },
+        {
+          "id": "l5_12",
+          "statement": "theorem pf_l5_12 (p : Prop) : p \u2194 \u00ac\u00acp := by",
+          "known_proof": "constructor\n\u00b7 intro hp hn; exact hn hp\n\u00b7 intro h; by_contra hn; exact h hn",
+          "difficulty": 12,
+          "required_tactics": [
+            "constructor",
+            "intro",
+            "by_contra",
+            "exact"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_6_composition",
+      "description": "Composition \u2014 Intermediate objects via have/suffices, equational chains via calc, partial application via apply. Morphism composition in the proof category: A \u2192 B \u2192 C requires constructing the intermediate object B.",
+      "categorical_concept": "composition",
+      "requires_definitions": true,
+      "theorems": [
+        {
+          "id": "l6_01",
+          "statement": "theorem pf_l6_01 (p q r : Prop) : (p \u2194 q) \u2192 (q \u2194 r) \u2192 (p \u2194 r) := by",
+          "known_proof": "intro hpq hqr\nconstructor\n\u00b7 intro hp\n  have hq := hpq.mp hp\n  exact hqr.mp hq\n\u00b7 intro hr\n  have hq := hqr.mpr hr\n  exact hpq.mpr hq",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "have",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_02",
+          "statement": "theorem pf_l6_02 (p q r s : Prop) : (p \u2192 q) \u2192 (q \u2192 r) \u2192 (r \u2192 s) \u2192 p \u2192 s := by",
+          "known_proof": "intro hpq hqr hrs hp\nhave hq := hpq hp\nhave hr := hqr hq\nexact hrs hr",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "have",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_03",
+          "statement": "theorem pf_l6_03 (p q r s : Prop) : (p \u2194 r) \u2192 (q \u2194 s) \u2192 (p \u2227 q \u2194 r \u2227 s) := by",
+          "known_proof": "intro hpr hqs\nconstructor\n\u00b7 intro \u27e8hp, hq\u27e9\n  have hr := hpr.mp hp\n  have hs := hqs.mp hq\n  exact \u27e8hr, hs\u27e9\n\u00b7 intro \u27e8hr, hs\u27e9\n  have hp := hpr.mpr hr\n  have hq := hqs.mpr hs\n  exact \u27e8hp, hq\u27e9",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "have",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_04",
+          "statement": "theorem pf_l6_04 (p q r s : Prop) : (p \u2194 r) \u2192 (q \u2194 s) \u2192 (p \u2228 q \u2194 r \u2228 s) := by",
+          "known_proof": "intro hpr hqs\nconstructor\n\u00b7 intro h; cases h with\n  | inl hp => left; exact hpr.mp hp\n  | inr hq => right; exact hqs.mp hq\n\u00b7 intro h; cases h with\n  | inl hr => left; exact hpr.mpr hr\n  | inr hs => right; exact hqs.mpr hs",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "cases",
+            "left",
+            "right",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_05",
+          "statement": "theorem pf_l6_05 (a b : Nat) : a \u2264 b \u2192 a * a \u2264 b * b := by",
+          "known_proof": "intro h\nhave h1 : a * a \u2264 a * b := Nat.mul_le_mul_left a h\nhave h2 : a * b \u2264 b * b := Nat.mul_le_mul_right b h\nexact Nat.le_trans h1 h2",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "have",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_06",
+          "statement": "theorem pf_l6_06 (a b c : Nat) : a * b * c = c * b * a := by",
+          "known_proof": "calc a * b * c\n    = c * (a * b) := by rw [Nat.mul_comm (a * b) c]\n  _ = c * (b * a) := by rw [Nat.mul_comm a b]\n  _ = c * b * a := by rw [Nat.mul_assoc]",
+          "difficulty": 15,
+          "required_tactics": [
+            "calc",
+            "rw"
+          ]
+        },
+        {
+          "id": "l6_07",
+          "statement": "theorem pf_l6_07 {\u03b1 : Type*} (p q : \u03b1 \u2192 Prop) : (\u2200 x, p x \u2192 q x) \u2192 (\u2203 x, p x) \u2192 \u2203 x, q x := by",
+          "known_proof": "intro h \u27e8x, hpx\u27e9\nhave hqx := h x hpx\nexact \u27e8x, hqx\u27e9",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "have",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_08",
+          "statement": "theorem pf_l6_08 (p q : Prop) : (p \u2194 q) \u2192 (\u00acp \u2194 \u00acq) := by",
+          "known_proof": "intro hpq\nconstructor\n\u00b7 intro hnp hq\n  have hp := hpq.mpr hq\n  exact hnp hp\n\u00b7 intro hnq hp\n  have hq := hpq.mp hp\n  exact hnq hq",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "have",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_09",
+          "statement": "theorem pf_l6_09 {\u03b1 : Type*} (xs ys : List \u03b1) : myLen xs \u2264 myLen (myApp xs ys) := by",
+          "known_proof": "have h : myLen (myApp xs ys) = myLen xs + myLen ys := by\n  induction xs with\n  | nil => simp [myApp, myLen]\n  | cons x xs ih => simp [myApp, myLen, ih]; omega\nrw [h]\nomega",
+          "difficulty": 15,
+          "required_tactics": [
+            "have",
+            "induction",
+            "simp",
+            "rw",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l6_10",
+          "statement": "theorem pf_l6_10 (a b c : Nat) : a + b + c = c + b + a := by",
+          "known_proof": "calc a + b + c\n    = (a + b) + c := rfl\n  _ = c + (a + b) := by rw [Nat.add_comm]\n  _ = c + (b + a) := by rw [Nat.add_comm a b]\n  _ = c + b + a := by rw [Nat.add_assoc]",
+          "difficulty": 14,
+          "required_tactics": [
+            "calc",
+            "rfl",
+            "rw"
+          ]
+        },
+        {
+          "id": "l6_11",
+          "statement": "theorem pf_l6_11 (p q r : Prop) : (p \u2192 q) \u2192 (q \u2192 r) \u2192 p \u2192 r := by",
+          "known_proof": "intro hpq hqr hp\nsuffices hq : q from hqr hq\nexact hpq hp",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "suffices",
+            "exact"
+          ]
+        },
+        {
+          "id": "l6_12",
+          "statement": "theorem pf_l6_12 (a b : Nat) : a \u2264 b \u2192 a * a \u2264 a * b \u2227 a * b \u2264 b * b := by",
+          "known_proof": "intro h\nconstructor\n\u00b7 exact Nat.mul_le_mul_left a h\n\u00b7 exact Nat.mul_le_mul_right b h",
+          "difficulty": 14,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "exact"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_7_universal_properties",
+      "description": "Universal Properties \u2014 Witness construction via use/constructor/exact \u27e8...\u27e9. To inhabit an existential \u2203x, P(x), you must provide a concrete witness x and prove P(x). The defining property of coproducts and products in type theory.",
+      "categorical_concept": "universal_property",
+      "requires_definitions": true,
+      "theorems": [
+        {
+          "id": "l7_01",
+          "statement": "theorem pf_l7_01 : \u2200 n : Nat, \u2203 m : Nat, m > n := by",
+          "known_proof": "intro n; exact \u27e8n + 1, by omega\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_02",
+          "statement": "theorem pf_l7_02 : \u2200 n : Nat, \u2203 m, n + m = 2 * n := by",
+          "known_proof": "intro n; exact \u27e8n, by omega\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_03",
+          "statement": "theorem pf_l7_03 : \u2200 n : Nat, \u2203 m, n = 2 * m \u2228 n = 2 * m + 1 := by",
+          "known_proof": "intro n\ninduction n with\n| zero => exact \u27e80, Or.inl (by omega)\u27e9\n| succ n ih =>\n  have \u27e8m, hm\u27e9 := ih\n  cases hm with\n  | inl h => exact \u27e8m, Or.inr (by omega)\u27e9\n  | inr h => exact \u27e8m + 1, Or.inl (by omega)\u27e9",
+          "difficulty": 17,
+          "required_tactics": [
+            "intro",
+            "induction",
+            "have",
+            "cases",
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_04",
+          "statement": "theorem pf_l7_04 {\u03b1 : Type*} (p : \u03b1 \u2192 Prop) (a : \u03b1) : p a \u2192 \u2203 x, p x := by",
+          "known_proof": "intro h; exact \u27e8a, h\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_05",
+          "statement": "theorem pf_l7_05 {\u03b1 : Type*} : \u2203 (f : Nat \u2192 Nat), \u2200 n, f n > n := by",
+          "known_proof": "exact \u27e8(\u00b7 + 1), fun n => by omega\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_06",
+          "statement": "theorem pf_l7_06 (a b : Nat) : a \u2264 b \u2192 \u2203 d, b = a + d := by",
+          "known_proof": "intro h; exact \u27e8b - a, by omega\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_07",
+          "statement": "theorem pf_l7_07 {\u03b1 : Type*} (p q : \u03b1 \u2192 Prop) : (\u2203 x, p x \u2227 q x) \u2192 (\u2203 x, p x) \u2227 (\u2203 x, q x) := by",
+          "known_proof": "intro \u27e8x, hpx, hqx\u27e9\nconstructor\n\u00b7 exact \u27e8x, hpx\u27e9\n\u00b7 exact \u27e8x, hqx\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "constructor",
+            "exact"
+          ]
+        },
+        {
+          "id": "l7_08",
+          "statement": "theorem pf_l7_08 {\u03b1 : Type*} (xs : List \u03b1) : xs \u2260 [] \u2192 \u2203 a as, xs = a :: as := by",
+          "known_proof": "intro h\ncases xs with\n| nil => exact absurd rfl h\n| cons a as => exact \u27e8a, as, rfl\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "exact",
+            "absurd",
+            "rfl"
+          ]
+        },
+        {
+          "id": "l7_09",
+          "statement": "theorem pf_l7_09 {\u03b1 : Type*} (f : \u03b1 \u2192 \u03b2) (xs : List \u03b1) : \u2203 ys, ys = myMap f xs \u2227 myLen ys = myLen xs := by",
+          "known_proof": "exact \u27e8myMap f xs, rfl, by\n  induction xs with\n  | nil => simp [myMap, myLen]\n  | cons x xs ih => simp [myMap, myLen, ih]\u27e9",
+          "difficulty": 17,
+          "required_tactics": [
+            "exact",
+            "induction",
+            "simp"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l7_10",
+          "statement": "theorem pf_l7_10 (n : Nat) : n > 0 \u2192 \u2203 m, n = m + 1 := by",
+          "known_proof": "intro h\ncases n with\n| zero => omega\n| succ m => exact \u27e8m, rfl\u27e9",
+          "difficulty": 16,
+          "required_tactics": [
+            "intro",
+            "cases",
+            "omega",
+            "exact",
+            "rfl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_8_natural_transformations",
+      "description": "Natural Transformations / Extensionality \u2014 Proving equality of functions from pointwise equality (funext), equality of structures from component equality (ext), congruence of function application (congr). In category theory, a natural transformation \u03b7: F \u27f9 G is determined by its components \u03b7_A at each object A.",
+      "categorical_concept": "natural_transformation",
+      "requires_definitions": true,
+      "theorems": [
+        {
+          "id": "l8_01",
+          "statement": "theorem pf_l8_01 {\u03b1 \u03b2 : Type*} (f g : \u03b1 \u2192 \u03b2) : (\u2200 x, f x = g x) \u2192 f = g := by",
+          "known_proof": "intro h; funext x; exact h x",
+          "difficulty": 18,
+          "required_tactics": [
+            "intro",
+            "funext",
+            "exact"
+          ]
+        },
+        {
+          "id": "l8_02",
+          "statement": "theorem pf_l8_02 {\u03b1 \u03b2 : Type*} (f : \u03b1 \u2192 \u03b2) : (fun x => f x) = f := by",
+          "known_proof": "funext x; rfl",
+          "difficulty": 18,
+          "required_tactics": [
+            "funext",
+            "rfl"
+          ]
+        },
+        {
+          "id": "l8_03",
+          "statement": "theorem pf_l8_03 {\u03b1 \u03b2 \u03b3 : Type*} (f g : \u03b1 \u2192 \u03b2) (h : \u03b2 \u2192 \u03b3) : (\u2200 x, f x = g x) \u2192 h \u2218 f = h \u2218 g := by",
+          "known_proof": "intro heq; funext x; simp [Function.comp]; rw [heq x]",
+          "difficulty": 18,
+          "required_tactics": [
+            "intro",
+            "funext",
+            "simp",
+            "rw"
+          ]
+        },
+        {
+          "id": "l8_04",
+          "statement": "theorem pf_l8_04 {\u03b1 \u03b2 \u03b3 : Type*} (f g : \u03b1 \u2192 \u03b2) (h : \u03b3 \u2192 \u03b1) : (\u2200 x, f x = g x) \u2192 f \u2218 h = g \u2218 h := by",
+          "known_proof": "intro heq; funext x; exact heq (h x)",
+          "difficulty": 18,
+          "required_tactics": [
+            "intro",
+            "funext",
+            "exact"
+          ]
+        },
+        {
+          "id": "l8_05",
+          "statement": "theorem pf_l8_05 {\u03b1 \u03b2 : Type*} (f : \u03b1 \u2192 \u03b2 \u2192 \u03b1) (a\u2081 a\u2082 : \u03b1) (b\u2081 b\u2082 : \u03b2) : a\u2081 = a\u2082 \u2192 b\u2081 = b\u2082 \u2192 f a\u2081 b\u2081 = f a\u2082 b\u2082 := by",
+          "known_proof": "intro ha hb; congr",
+          "difficulty": 18,
+          "required_tactics": [
+            "intro",
+            "congr"
+          ]
+        },
+        {
+          "id": "l8_06",
+          "statement": "theorem pf_l8_06 {\u03b1 \u03b2 : Type*} (p q : \u03b1 \u00d7 \u03b2) : p.1 = q.1 \u2192 p.2 = q.2 \u2192 p = q := by",
+          "known_proof": "intro h1 h2; exact Prod.ext h1 h2",
+          "difficulty": 18,
+          "required_tactics": [
+            "intro",
+            "exact"
+          ]
+        },
+        {
+          "id": "l8_07",
+          "statement": "theorem pf_l8_07 {\u03b1 : Type*} : @id \u03b1 = fun x => x := by",
+          "known_proof": "funext x; rfl",
+          "difficulty": 18,
+          "required_tactics": [
+            "funext",
+            "rfl"
+          ]
+        },
+        {
+          "id": "l8_08",
+          "statement": "theorem pf_l8_08 {\u03b1 \u03b2 \u03b3 : Type*} (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) : g \u2218 f = fun x => g (f x) := by",
+          "known_proof": "funext x; rfl",
+          "difficulty": 18,
+          "required_tactics": [
+            "funext",
+            "rfl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_9_2_morphisms",
+      "description": "2-Morphisms / Controlled Rewriting \u2014 Targeted rewriting within specific subexpressions using conv, simp only with explicit lemma lists, and computed rw arguments. In category theory, 2-morphisms are morphisms between morphisms \u2014 here, transformations of specific parts of a proof term.",
+      "categorical_concept": "2_morphism",
+      "requires_definitions": true,
+      "requires_mathlib": false,
+      "status": "concrete",
+      "theorems": [
+        {
+          "id": "l9_01",
+          "statement": "theorem pf_l9_01 (a b c : Nat) : (a + b) * c = a * c + b * c := by",
+          "known_proof": "rw [Nat.add_mul]",
+          "difficulty": 20,
+          "required_tactics": [
+            "rw"
+          ]
+        },
+        {
+          "id": "l9_02",
+          "statement": "theorem pf_l9_02 (a b c : Nat) : a * (b + c) = a * b + a * c := by",
+          "known_proof": "rw [Nat.mul_add]",
+          "difficulty": 20,
+          "required_tactics": [
+            "rw"
+          ]
+        },
+        {
+          "id": "l9_03",
+          "statement": "theorem pf_l9_03 (a b c d : Nat) : (a + b) * (c + d) = a * c + a * d + b * c + b * d := by",
+          "known_proof": "rw [Nat.add_mul, Nat.mul_add, Nat.mul_add]; omega",
+          "difficulty": 21,
+          "required_tactics": [
+            "rw",
+            "omega"
+          ]
+        },
+        {
+          "id": "l9_04",
+          "statement": "theorem pf_l9_04 (a b : Nat) : (a + b) * (a + b) = a * a + 2 * a * b + b * b := by",
+          "known_proof": "rw [Nat.add_mul, Nat.mul_add, Nat.mul_add]; omega",
+          "difficulty": 21,
+          "required_tactics": [
+            "rw",
+            "omega"
+          ]
+        },
+        {
+          "id": "l9_05",
+          "statement": "theorem pf_l9_05 {\u03b1 : Type*} (xs ys : List \u03b1) (x : \u03b1) : myLen (myApp xs (x :: ys)) = myLen xs + 1 + myLen ys := by",
+          "known_proof": "have h1 : myLen (myApp xs (x :: ys)) = myLen xs + myLen (x :: ys) := by\n  induction xs with\n  | nil => simp [myApp, myLen]\n  | cons a as ih => simp [myApp, myLen, ih]; omega\nrw [h1]\nsimp [myLen]\nomega",
+          "difficulty": 21,
+          "required_tactics": [
+            "have",
+            "induction",
+            "simp",
+            "rw",
+            "omega"
+          ],
+          "_requires_definitions": true
+        },
+        {
+          "id": "l9_06",
+          "statement": "theorem pf_l9_06 (a b c : Nat) (h : a = b) : a + c = b + c := by",
+          "known_proof": "rw [h]",
+          "difficulty": 20,
+          "required_tactics": [
+            "rw"
+          ]
+        },
+        {
+          "id": "l9_07",
+          "statement": "theorem pf_l9_07 (a b c : Nat) (h : a = b + c) : 2 * a = 2 * b + 2 * c := by",
+          "known_proof": "rw [h, Nat.mul_add]",
+          "difficulty": 20,
+          "required_tactics": [
+            "rw"
+          ]
+        },
+        {
+          "id": "l9_08",
+          "statement": "theorem pf_l9_08 (f : Nat \u2192 Nat) (a b : Nat) (h : a = b) : f a = f b := by",
+          "known_proof": "rw [h]",
+          "difficulty": 20,
+          "required_tactics": [
+            "rw"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_10_functors",
+      "description": "Functors / Cross-Domain Import \u2014 Theorems requiring lemmas from multiple mathematical domains (algebra + order, logic + arithmetic, list + number theory). In category theory, a functor F: C \u2192 D maps objects and morphisms between categories, preserving composition. Here, the model must import results from one domain to solve problems in another.",
+      "categorical_concept": "functor",
+      "requires_definitions": true,
+      "requires_mathlib": "recommended",
+      "status": "seed",
+      "theorems": [
+        {
+          "id": "l10_01",
+          "statement": "theorem pf_l10_01 (a b : Nat) : a \u2223 b \u2192 a \u2223 (b + a) := by",
+          "known_proof": "intro \u27e8k, hk\u27e9\nexact \u27e8k + 1, by rw [hk, Nat.mul_succ]\u27e9",
+          "difficulty": 22,
+          "required_tactics": [
+            "intro",
+            "exact",
+            "rw"
+          ]
+        },
+        {
+          "id": "l10_02",
+          "statement": "theorem pf_l10_02 (a b c : Nat) : a \u2223 b \u2192 a \u2223 c \u2192 a \u2223 (b + c) := by",
+          "known_proof": "intro \u27e8k, hk\u27e9 \u27e8m, hm\u27e9\nexact \u27e8k + m, by rw [hk, hm, Nat.mul_add]\u27e9",
+          "difficulty": 22,
+          "required_tactics": [
+            "intro",
+            "exact",
+            "rw"
+          ]
+        },
+        {
+          "id": "l10_03",
+          "statement": "theorem pf_l10_03 (a b c : Nat) : a \u2223 b \u2192 b \u2223 c \u2192 a \u2223 c := by",
+          "known_proof": "intro \u27e8k, hk\u27e9 \u27e8m, hm\u27e9\nexact \u27e8k * m, by rw [hm, hk, Nat.mul_assoc]\u27e9",
+          "difficulty": 22,
+          "required_tactics": [
+            "intro",
+            "exact",
+            "rw"
+          ]
+        },
+        {
+          "id": "l10_04",
+          "statement": "theorem pf_l10_04 (a b : Nat) : a \u2223 b \u2192 a \u2223 (b * c) := by",
+          "known_proof": "intro \u27e8k, hk\u27e9\nexact \u27e8k * c, by rw [hk, Nat.mul_assoc]\u27e9",
+          "difficulty": 22,
+          "required_tactics": [
+            "intro",
+            "exact",
+            "rw"
+          ]
+        },
+        {
+          "id": "l10_05",
+          "statement": "theorem pf_l10_05 (n : Nat) : 2 \u2223 (n * (n + 1)) := by",
+          "known_proof": "cases Nat.even_or_odd n with\n| inl \u27e8k, hk\u27e9 => exact \u27e8k * (n + 1), by rw [hk]; ring\u27e9\n| inr \u27e8k, hk\u27e9 => exact \u27e8n * (k + 1), by rw [hk]; ring\u27e9",
+          "difficulty": 23,
+          "required_tactics": [
+            "cases",
+            "exact",
+            "rw",
+            "ring"
+          ],
+          "note": "May require Mathlib for Nat.even_or_odd and ring"
+        },
+        {
+          "id": "l10_06",
+          "statement": "theorem pf_l10_06 (a b : Nat) (h : a \u2223 b) (hb : 0 < b) : a \u2264 b := by",
+          "known_proof": "have \u27e8k, hk\u27e9 := h\ncases k with\n| zero => omega\n| succ k => omega",
+          "difficulty": 22,
+          "required_tactics": [
+            "have",
+            "cases",
+            "omega"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "level_11_free_objects",
+      "description": "Free Objects / Construction Discovery \u2014 The model must invent a mathematical construction (function, set, sequence) as a witness to prove an existential claim. In category theory, free objects are those generated freely by a set of generators \u2014 the prover must discover the generators.",
+      "categorical_concept": "free_object",
+      "requires_definitions": true,
+      "requires_mathlib": "recommended",
+      "status": "seed",
+      "theorems": [
+        {
+          "id": "l11_01",
+          "statement": "theorem pf_l11_01 : \u2203 (f : Nat \u2192 Nat), (\u2200 n, f n > n) \u2227 (\u2200 n, f n < f (n + 1)) := by",
+          "known_proof": "exact \u27e8(\u00b7 + 1), fun n => by omega, fun n => by omega\u27e9",
+          "difficulty": 24,
+          "required_tactics": [
+            "exact"
+          ]
+        },
+        {
+          "id": "l11_02",
+          "statement": "theorem pf_l11_02 : \u2203 (f : Nat \u2192 Nat), (\u2200 n, f (f n) = n) \u2227 f \u2260 id := by",
+          "known_proof": "exact \u27e8fun n => match n with | 0 => 1 | 1 => 0 | n => n,\n  fun n => by cases n with | zero => rfl | succ n => cases n with | zero => rfl | succ n => rfl,\n  fun h => by have := congr_fun h 0; simp [id] at this\u27e9",
+          "difficulty": 25,
+          "required_tactics": [
+            "exact",
+            "cases",
+            "rfl",
+            "simp"
+          ]
+        },
+        {
+          "id": "l11_03",
+          "statement": "theorem pf_l11_03 : \u2203 (f : Nat \u2192 Nat), \u2200 n, f n = 0 \u2228 f n = 1 := by",
+          "known_proof": "exact \u27e8fun _ => 0, fun _ => Or.inl rfl\u27e9",
+          "difficulty": 24,
+          "required_tactics": [
+            "exact"
+          ]
+        },
+        {
+          "id": "l11_04",
+          "statement": "theorem pf_l11_04 : \u2203 (f g : Nat \u2192 Nat), (\u2200 n, f (g n) = n) \u2227 (\u2200 n, g (f n) = n) \u2227 f \u2260 g := by",
+          "known_proof": "exact \u27e8(\u00b7 + 1), (\u00b7 - 1),\n  fun n => by omega,\n  fun n => by omega,\n  fun h => by have := congr_fun h 0; simp at this\u27e9",
+          "difficulty": 25,
+          "required_tactics": [
+            "exact",
+            "simp"
+          ],
+          "note": "Nat subtraction: (n+1) - 1 = n but 0 - 1 = 0, so g \u2218 f \u2260 id on 0. This theorem may need adjustment."
+        },
+        {
+          "id": "l11_05",
+          "statement": "theorem pf_l11_05 {\u03b1 : Type*} : \u2203 (f : List \u03b1 \u2192 List \u03b1), \u2200 xs, myLen (f xs) = myLen xs := by",
+          "known_proof": "exact \u27e8id, fun xs => rfl\u27e9",
+          "difficulty": 24,
+          "required_tactics": [
+            "exact",
+            "rfl"
+          ],
+          "_requires_definitions": true
+        }
+      ]
+    },
+    {
+      "name": "level_12_adjunctions",
+      "description": "Adjunctions / Strategy Invention \u2014 The model must discover a novel proof strategy or combine multiple advanced techniques in an unprecedented way. In category theory, an adjunction F \u22a3 G between functors establishes a natural isomorphism Hom(F(A), B) \u2245 Hom(A, G(B)) \u2014 the model must find the corresponding 'free' and 'forgetful' structure in the proof.",
+      "categorical_concept": "adjunction",
+      "requires_definitions": true,
+      "requires_mathlib": true,
+      "status": "aspirational",
+      "theorems": [
+        {
+          "id": "l12_01",
+          "statement": "theorem pf_l12_01 : \u2200 n : Nat, \u2203 p, p > n \u2227 (p % 2 = 1 \u2228 p = 2) := by",
+          "known_proof": "intro n; exact \u27e82 * n + 3, by omega, Or.inl (by omega)\u27e9",
+          "difficulty": 26,
+          "required_tactics": [
+            "intro",
+            "exact",
+            "omega"
+          ],
+          "note": "Simplified version of 'there exists a number > n with a specific property'. Real L12 problems would be competition-math level."
+        },
+        {
+          "id": "l12_02",
+          "statement": "theorem pf_l12_02 (f : Nat \u2192 Nat) (hf : \u2200 n, f n \u2264 f (n + 1)) (a b : Nat) : a \u2264 b \u2192 f a \u2264 f b := by",
+          "known_proof": "intro h\ninduction b with\n| zero => omega\n| succ b ih =>\n  cases Nat.eq_or_lt_of_le h with\n  | inl heq => rw [heq]\n  | inr hlt =>\n    have hab : a \u2264 b := by omega\n    have h1 := ih hab\n    exact Nat.le_trans h1 (hf b)",
+          "difficulty": 26,
+          "required_tactics": [
+            "intro",
+            "induction",
+            "cases",
+            "rw",
+            "have",
+            "exact",
+            "omega"
+          ]
+        },
+        {
+          "id": "l12_03",
+          "statement": "theorem pf_l12_03 {\u03b1 : Type*} (f : \u03b1 \u2192 \u03b1) (hf : \u2200 x, f (f x) = x) : Function.Bijective f := by",
+          "known_proof": "constructor\n\u00b7 intro a b hab\n  have : f (f a) = f (f b) := by rw [hab]\n  rw [hf, hf] at this\n  exact this\n\u00b7 intro b\n  exact \u27e8f b, hf b\u27e9",
+          "difficulty": 26,
+          "required_tactics": [
+            "constructor",
+            "intro",
+            "have",
+            "rw",
+            "exact"
+          ]
+        },
+        {
+          "id": "l12_04",
+          "statement": "theorem pf_l12_04 {\u03b1 : Type*} [Inhabited \u03b1] (f : \u03b1 \u2192 \u03b1) (hf : Function.Surjective f) : \u2203 g : \u03b1 \u2192 \u03b1, \u2200 x, f (g x) = x := by",
+          "known_proof": "exact \u27e8fun x => (hf x).choose, fun x => (hf x).choose_spec\u27e9",
+          "difficulty": 26,
+          "required_tactics": [
+            "exact"
+          ],
+          "note": "Uses axiom of choice via Exists.choose. Requires understanding of Choice in Lean 4."
+        }
+      ]
+    }
+  ],
+  "q_amplifier": {
+    "description": "Every solved theorem at level L can be amplified to generate harder theorems. Four composable amplifiers:",
+    "amplifiers": [
+      {
+        "name": "q_amplification",
+        "difficulty_delta": 1,
+        "description": "Replace finite sets with F_q vector spaces. Replace |S| with dim(V). Replace binomial with Gaussian binomial. Requires Mathlib."
+      },
+      {
+        "name": "universalization",
+        "difficulty_delta": 2,
+        "description": "Replace specific types with universally quantified types. Replace Nat with any ordered semiring. Replace List with any Foldable."
+      },
+      {
+        "name": "witness_compression",
+        "difficulty_delta": 1,
+        "description": "For existence proofs, require the witness to be minimal/maximal in some ordering. Forces extremal reasoning."
+      },
+      {
+        "name": "kolmogorov_compression",
+        "difficulty_delta": 2,
+        "description": "Given theorem T with known proof P, prove T with proof length \u2264 |P|/2. Engages ProofOptimizer's compression reward."
+      }
+    ],
+    "fractal_property": "Amplifiers compose. q(universalize(compress(T))) at level L produces a theorem at level L+4. A 50-theorem seed generates 200+ theorems."
+  },
+  "training_integration": {
+    "expanding_ring": "Use ExpandingRing from curriculum/expanding_ring.py. Each level is a tier. expansion_threshold=0.7, min_tier_steps=20.",
+    "infrastructure_aware": "Use InfrastructureAwareSampler from curriculum/infrastructure_aware.py. required_infra for each theorem = required_tactics field.",
+    "hard_negative_sampling": "ABEL-style: sample problem i with weight (n_i+1)^{-0.5} where n_i = successful proofs so far.",
+    "phase_amplitude": "Amplitude training: pretrain on Mathlib corpus (slow updates). Phase training: online RL on curriculum (fast updates, reset at level transitions).",
+    "checkpoint_selection": "Use ppl@1.4 (temperature-scaled perplexity) from Gloeckle 2023 as cheap convergence signal.",
+    "diversity_pressure": "tactic_usage_fn should return frequency of each tactic. diversity_bonus=2.0 for under-represented tactics (cases, induction, by_contra). monoculture_penalty=0.3 for simp-only proofs."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "per_pca_dim": [
+    {
+      "pca_dim": 10,
+      "n_h0_components": 1,
+      "n_h1_significant": 10,
+      "n_h2_significant": 2
+    },
+    {
+      "pca_dim": 20,
+      "n_h0_components": 1,
+      "n_h1_significant": 12,
+      "n_h2_significant": 0
+    },
+    {
+      "pca_dim": 50,
+      "n_h0_components": 1,
+      "n_h1_significant": 18,
+      "n_h2_significant": 0
+    },
+    {
+      "pca_dim": 100,
+      "n_h0_components": 1,
+      "n_h1_significant": 15,
+      "n_h2_significant": 0
+    }
+  ],
+  "h1_cv": 0.22044283003818854,
+  "h1_stable": true,
+  "h2_cv": 1.7320508041047757,
+  "h2_stable": false,
+  "interpretation": "14 significant H1 loops on average \u2014 complex topology with multiple cycles. Estimated intrinsic dim \u2248 5.3 from Step 3."
+}

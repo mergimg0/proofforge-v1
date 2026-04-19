@@ -1,0 +1,1818 @@
+{
+  "verified": 13,
+  "failed": 234,
+  "errors": 0,
+  "skipped": 165,
+  "results": [
+    {
+      "tid": "t1_01",
+      "t": 0.3,
+      "l": 512,
+      "ok": true,
+      "tactic": "trivial",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_01",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_01",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_01",
+      "t": 0.7,
+      "l": 78,
+      "ok": true,
+      "tactic": "trivial",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_01",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_01",
+      "t": 1.2,
+      "l": 33,
+      "ok": true,
+      "tactic": "constructor",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_02",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_02",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_02",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "exactrfl",
+      "r": "err"
+    },
+    {
+      "tid": "t1_02",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "rfltheorem pf_t1_03:1=1:=by rfltheorem pf_t1_04:1=",
+      "r": "err"
+    },
+    {
+      "tid": "t1_02",
+      "t": 1.2,
+      "l": 121,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_02",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "r": "empty2"
+    },
+    {
+      "tid": "t1_03",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_03",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_03",
+      "t": 0.7,
+      "l": 22,
+      "ok": false,
+      "tactic": "norm_num",
+      "r": "err"
+    },
+    {
+      "tid": "t1_03",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "rfltheorem pf_t1_04:10*2=20:=byrfltheorem pf_t1_05",
+      "r": "err"
+    },
+    {
+      "tid": "t1_03",
+      "t": 1.2,
+      "l": 109,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_03",
+      "t": 1.2,
+      "l": 49,
+      "ok": false,
+      "tactic": "terminationalgorithmnorm_num",
+      "r": "err"
+    },
+    {
+      "tid": "t1_04",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_04",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_04",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_04",
+      "t": 0.7,
+      "l": 27,
+      "ok": true,
+      "tactic": "rfl",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_04",
+      "t": 1.2,
+      "l": 64,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_04",
+      "t": 1.2,
+      "l": 248,
+      "ok": false,
+      "tactic": "rfltheorempf_t1_02:0\u00e2\u0124\u00acPhiand10*10=9sq:=by",
+      "r": "err"
+    },
+    {
+      "tid": "t1_05",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_05",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_05",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_05",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "lean4",
+      "r": "err"
+    },
+    {
+      "tid": "t1_05",
+      "t": 1.2,
+      "l": 201,
+      "ok": false,
+      "tactic": "```lean4",
+      "r": "err"
+    },
+    {
+      "tid": "t1_05",
+      "t": 1.2,
+      "l": 240,
+      "ok": false,
+      "tactic": ">rw[eq_comm]--[ROOT_CLASSES]=commit=\"Also, we rewr",
+      "r": "err"
+    },
+    {
+      "tid": "t1_06",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_06",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_06",
+      "t": 0.7,
+      "l": 25,
+      "ok": true,
+      "tactic": "rfl",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_06",
+      "t": 0.7,
+      "l": 112,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_06",
+      "t": 1.2,
+      "l": 3,
+      "ok": true,
+      "tactic": "rfl",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_06",
+      "t": 1.2,
+      "l": 369,
+      "ok": false,
+      "tactic": "lean4top",
+      "r": "err"
+    },
+    {
+      "tid": "t1_07",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_07",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_07",
+      "t": 0.7,
+      "l": 95,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_07",
+      "t": 0.7,
+      "l": 199,
+      "ok": true,
+      "tactic": "exact?",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_07",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_07",
+      "t": 1.2,
+      "l": 21,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_08",
+      "t": 0.3,
+      "l": 59,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_08",
+      "t": 0.3,
+      "l": 512,
+      "ok": true,
+      "tactic": "simp [Nat.pow_succ, Nat.mul_assoc]",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_08",
+      "t": 0.7,
+      "l": 93,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_08",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "empty2"
+    },
+    {
+      "tid": "t1_08",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "tactic": "-/",
+      "r": "err"
+    },
+    {
+      "tid": "t1_08",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_09",
+      "t": 0.3,
+      "l": 86,
+      "ok": false,
+      "tactic": "have h1 : False := by",
+      "r": "err"
+    },
+    {
+      "tid": "t1_09",
+      "t": 0.3,
+      "l": 172,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_09",
+      "t": 0.7,
+      "l": 274,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_09",
+      "t": 0.7,
+      "l": 219,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_09",
+      "t": 1.2,
+      "l": 34,
+      "ok": false,
+      "tactic": "(exactFalse )\u00e2\u0141\u00a9",
+      "r": "err"
+    },
+    {
+      "tid": "t1_09",
+      "t": 1.2,
+      "l": 248,
+      "ok": false,
+      "tactic": "have h1 : False := by",
+      "r": "err"
+    },
+    {
+      "tid": "t1_10",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_10",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_10",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_10",
+      "t": 0.7,
+      "l": 512,
+      "ok": true,
+      "tactic": "trivial",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_10",
+      "t": 1.2,
+      "l": 17,
+      "ok": false,
+      "tactic": "exactDecidableTrue/Apr 09, 20240",
+      "r": "err"
+    },
+    {
+      "tid": "t1_10",
+      "t": 1.2,
+      "l": 19,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_11",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_11",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_11",
+      "t": 0.7,
+      "l": 512,
+      "ok": true,
+      "tactic": "simp",
+      "r": "ok"
+    },
+    {
+      "tid": "t1_11",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_11",
+      "t": 1.2,
+      "l": 69,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_11",
+      "t": 1.2,
+      "l": 387,
+      "ok": false,
+      "tactic": "All primes greater than or equal to 5 and not divi",
+      "r": "err"
+    },
+    {
+      "tid": "t1_12",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_12",
+      "t": 0.3,
+      "l": 58,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_12",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_12",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_12",
+      "t": 1.2,
+      "l": 42,
+      "ok": false,
+      "tactic": "Apply*argument.```transitive_eq3|>. by norm_num5",
+      "r": "err"
+    },
+    {
+      "tid": "t1_12",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "tactic": "introh;casesh",
+      "r": "err"
+    },
+    {
+      "tid": "t1_13",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_13",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_13",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_13",
+      "t": 0.7,
+      "l": 57,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_13",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_13",
+      "t": 1.2,
+      "l": 257,
+      "ok": false,
+      "tactic": "simp;theoremright_pf_t1_13aFunctiondefinitionfollo",
+      "r": "err"
+    },
+    {
+      "tid": "t1_14",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_14",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_14",
+      "t": 0.7,
+      "l": 110,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_14",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "```lean4",
+      "r": "err"
+    },
+    {
+      "tid": "t1_14",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "tactic": "tauto ```Answer``` lean4 proof```theorem pf_t1_14:",
+      "r": "err"
+    },
+    {
+      "tid": "t1_14",
+      "t": 1.2,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t1_15",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_15",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_15",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t1_15",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "norm_num",
+      "r": "err"
+    },
+    {
+      "tid": "t1_15",
+      "t": 1.2,
+      "l": 411,
+      "ok": false,
+      "tactic": "decideColumn A :by norm_numColumn B :by induction ",
+      "r": "err"
+    },
+    {
+      "tid": "t1_15",
+      "t": 1.2,
+      "l": 70,
+      "ok": false,
+      "tactic": "need look at exponent rulesNeedknowthat2^3=8Using ",
+      "r": "err"
+    },
+    {
+      "tid": "t2_01",
+      "t": 0.3,
+      "l": 78,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_01",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_01",
+      "t": 0.7,
+      "l": 457,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_01",
+      "t": 0.7,
+      "l": 294,
+      "ok": false,
+      "tactic": "aesop",
+      "r": "err"
+    },
+    {
+      "tid": "t2_01",
+      "t": 1.2,
+      "l": 89,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_01",
+      "t": 1.2,
+      "l": 1,
+      "ok": false,
+      "r": "empty"
+    },
+    {
+      "tid": "t2_02",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_02",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_02",
+      "t": 0.7,
+      "l": 62,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_02",
+      "t": 0.7,
+      "l": 49,
+      "ok": false,
+      "tactic": "induction n",
+      "r": "err"
+    },
+    {
+      "tid": "t2_02",
+      "t": 1.2,
+      "l": 127,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_02",
+      "t": 1.2,
+      "l": 55,
+      "ok": false,
+      "tactic": "induction n with",
+      "r": "err"
+    },
+    {
+      "tid": "t2_03",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_03",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_03",
+      "t": 0.7,
+      "l": 113,
+      "ok": false,
+      "tactic": "induction n with",
+      "r": "err"
+    },
+    {
+      "tid": "t2_03",
+      "t": 0.7,
+      "l": 13,
+      "ok": false,
+      "tactic": "induction n",
+      "r": "err"
+    },
+    {
+      "tid": "t2_03",
+      "t": 1.2,
+      "l": 20,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_03",
+      "t": 1.2,
+      "l": 263,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_04",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_04",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_04",
+      "t": 0.7,
+      "l": 512,
+      "ok": true,
+      "tactic": "apply Nat.add_comm",
+      "r": "ok"
+    },
+    {
+      "tid": "t2_04",
+      "t": 0.7,
+      "l": 136,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_04",
+      "t": 1.2,
+      "l": 81,
+      "ok": false,
+      "tactic": "rfl",
+      "r": "err"
+    },
+    {
+      "tid": "t2_04",
+      "t": 1.2,
+      "l": 48,
+      "ok": false,
+      "tactic": "inductionabwith|zeroabrfine=>rfl|acnextabrfineih=>",
+      "r": "err"
+    },
+    {
+      "tid": "t2_05",
+      "t": 0.3,
+      "l": 35,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_05",
+      "t": 0.3,
+      "l": 35,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_05",
+      "t": 0.7,
+      "l": 30,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_05",
+      "t": 0.7,
+      "l": 108,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_05",
+      "t": 1.2,
+      "l": 21,
+      "ok": false,
+      "tactic": "ring",
+      "r": "err"
+    },
+    {
+      "tid": "t2_05",
+      "t": 1.2,
+      "l": 216,
+      "ok": false,
+      "tactic": "unfold beq_nat;",
+      "r": "err"
+    },
+    {
+      "tid": "t2_06",
+      "t": 0.3,
+      "l": 195,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_06",
+      "t": 0.3,
+      "l": 88,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_06",
+      "t": 0.7,
+      "l": 126,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_06",
+      "t": 0.7,
+      "l": 27,
+      "ok": true,
+      "tactic": "simp",
+      "r": "ok"
+    },
+    {
+      "tid": "t2_06",
+      "t": 1.2,
+      "l": 2,
+      "ok": false,
+      "tactic": "__",
+      "r": "err"
+    },
+    {
+      "tid": "t2_06",
+      "t": 1.2,
+      "l": 75,
+      "ok": false,
+      "tactic": "applyNat.mul_one",
+      "r": "err"
+    },
+    {
+      "tid": "t2_07",
+      "t": 0.3,
+      "l": 32,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_07",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "tactic": "tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t2_07",
+      "t": 0.7,
+      "l": 35,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_07",
+      "t": 0.7,
+      "l": 30,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_07",
+      "t": 1.2,
+      "l": 224,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_07",
+      "t": 1.2,
+      "l": 62,
+      "ok": false,
+      "tactic": "cases Classical.em p with",
+      "r": "err"
+    },
+    {
+      "tid": "t2_08",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_08",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_08",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_08",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_08",
+      "t": 1.2,
+      "l": 447,
+      "ok": false,
+      "tactic": "Cases h:pq",
+      "r": "err"
+    },
+    {
+      "tid": "t2_08",
+      "t": 1.2,
+      "l": 436,
+      "ok": false,
+      "tactic": "tauto:lean4\u00e4\u00b8\u00a5\u00e6\u0142\u00bc",
+      "r": "err"
+    },
+    {
+      "tid": "t2_09",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_09",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_09",
+      "t": 0.7,
+      "l": 77,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_09",
+      "t": 0.7,
+      "l": 512,
+      "ok": true,
+      "tactic": "simp_all",
+      "r": "ok"
+    },
+    {
+      "tid": "t2_09",
+      "t": 1.2,
+      "l": 31,
+      "ok": false,
+      "tactic": "tactic",
+      "r": "err"
+    },
+    {
+      "tid": "t2_10",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "tactic": "tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t2_10",
+      "t": 0.3,
+      "l": 57,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_10",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "aesop",
+      "r": "err"
+    },
+    {
+      "tid": "t2_10",
+      "t": 0.7,
+      "l": 7,
+      "ok": false,
+      "tactic": "tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t2_11",
+      "t": 0.3,
+      "l": 125,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_11",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_11",
+      "t": 0.7,
+      "l": 87,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_11",
+      "t": 0.7,
+      "l": 141,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_12",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_12",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_12",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_12",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "_cases h:n=0",
+      "r": "err"
+    },
+    {
+      "tid": "t2_13",
+      "t": 0.3,
+      "l": 80,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_13",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_13",
+      "t": 0.7,
+      "l": 80,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_13",
+      "t": 0.7,
+      "l": 50,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_14",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_14",
+      "t": 0.3,
+      "l": 148,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_14",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "induction nm with",
+      "r": "err"
+    },
+    {
+      "tid": "t2_14",
+      "t": 0.7,
+      "l": 505,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_15",
+      "t": 0.3,
+      "l": 90,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_15",
+      "t": 0.3,
+      "l": 63,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t2_15",
+      "t": 0.7,
+      "l": 36,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t2_15",
+      "t": 0.7,
+      "l": 145,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_01",
+      "t": 0.3,
+      "l": 31,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_01",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_01",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_01",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_02",
+      "t": 0.3,
+      "l": 18,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_02",
+      "t": 0.3,
+      "l": 123,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_02",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_02",
+      "t": 0.7,
+      "l": 56,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_03",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_03",
+      "t": 0.3,
+      "l": 69,
+      "ok": false,
+      "tactic": "induction l with",
+      "r": "err"
+    },
+    {
+      "tid": "t3_03",
+      "t": 0.7,
+      "l": 39,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_03",
+      "t": 0.7,
+      "l": 158,
+      "ok": false,
+      "tactic": "caseslanof|[]=>rfl|a:Nat::l=>bycaseslanof|[]=>rfl|",
+      "r": "err"
+    },
+    {
+      "tid": "t3_04",
+      "t": 0.3,
+      "l": 61,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_04",
+      "t": 0.3,
+      "l": 73,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_04",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "inductionlwith|nil=>|h\u00e2\u0124\u0123::h\u00e2\u0124\u0124=>",
+      "r": "err"
+    },
+    {
+      "tid": "t3_04",
+      "t": 0.7,
+      "l": 76,
+      "ok": false,
+      "tactic": "inductionl",
+      "r": "err"
+    },
+    {
+      "tid": "t3_05",
+      "t": 0.3,
+      "l": 56,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_05",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_05",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_05",
+      "t": 0.7,
+      "l": 412,
+      "ok": false,
+      "tactic": "inductionnwith|zero=>rfl|succn ih=>simp_all[Nat.ad",
+      "r": "err"
+    },
+    {
+      "tid": "t3_06",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_06",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_06",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_06",
+      "t": 0.7,
+      "l": 83,
+      "ok": false,
+      "tactic": "induction n",
+      "r": "err"
+    },
+    {
+      "tid": "t3_07",
+      "t": 0.3,
+      "l": 19,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_07",
+      "t": 0.3,
+      "l": 75,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_07",
+      "t": 0.7,
+      "l": 70,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_07",
+      "t": 0.7,
+      "l": 3,
+      "ok": false,
+      "tactic": "...```",
+      "r": "err"
+    },
+    {
+      "tid": "t3_08",
+      "t": 0.3,
+      "l": 74,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_08",
+      "t": 0.3,
+      "l": 189,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_08",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_08",
+      "t": 0.7,
+      "l": 123,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_09",
+      "t": 0.3,
+      "l": 110,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_09",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_09",
+      "t": 0.7,
+      "l": 47,
+      "ok": false,
+      "tactic": "inductionnwithh\u00e2\u0124\u0123|h\u00e2\u0124\u0124n ih=>simp_all[Nat.mul_succ",
+      "r": "err"
+    },
+    {
+      "tid": "t3_09",
+      "t": 0.7,
+      "l": 175,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t3_10",
+      "t": 0.3,
+      "l": 100,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_10",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t3_10",
+      "t": 0.7,
+      "l": 105,
+      "ok": false,
+      "tactic": "begin",
+      "r": "err"
+    },
+    {
+      "tid": "t3_10",
+      "t": 0.7,
+      "l": 109,
+      "ok": false,
+      "tactic": "induction abc with",
+      "r": "err"
+    },
+    {
+      "tid": "t4_01",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_01",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "tactic": "tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t4_01",
+      "t": 0.7,
+      "l": 27,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_01",
+      "t": 0.7,
+      "l": 54,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_02",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_02",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "tactic": "tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t4_02",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "intro h",
+      "r": "err"
+    },
+    {
+      "tid": "t4_02",
+      "t": 0.7,
+      "l": 34,
+      "ok": false,
+      "tactic": "by_cases h:pq",
+      "r": "err"
+    },
+    {
+      "tid": "t4_03",
+      "t": 0.3,
+      "l": 28,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_03",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_03",
+      "t": 0.7,
+      "l": 26,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_03",
+      "t": 0.7,
+      "l": 32,
+      "ok": false,
+      "tactic": "have h\u00e2\u0124\u0124 : p q := by tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t4_04",
+      "t": 0.3,
+      "l": 54,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_04",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "tactic": "tauto",
+      "r": "err"
+    },
+    {
+      "tid": "t4_04",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_04",
+      "t": 0.7,
+      "l": 20,
+      "ok": false,
+      "tactic": "intro",
+      "r": "err"
+    },
+    {
+      "tid": "t4_05",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_05",
+      "t": 0.3,
+      "l": 72,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_05",
+      "t": 0.7,
+      "l": 96,
+      "ok": false,
+      "tactic": "```lean4",
+      "r": "err"
+    },
+    {
+      "tid": "t4_05",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_06",
+      "t": 0.3,
+      "l": 68,
+      "ok": false,
+      "tactic": "induction n with",
+      "r": "err"
+    },
+    {
+      "tid": "t4_06",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_06",
+      "t": 0.7,
+      "l": 65,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_06",
+      "t": 0.7,
+      "l": 120,
+      "ok": false,
+      "r": "comment"
+    },
+    {
+      "tid": "t4_07",
+      "t": 0.3,
+      "l": 34,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_07",
+      "t": 0.3,
+      "l": 31,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_07",
+      "t": 0.7,
+      "l": 50,
+      "ok": false,
+      "tactic": "```lean4",
+      "r": "err"
+    },
+    {
+      "tid": "t4_07",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_08",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_08",
+      "t": 0.3,
+      "l": 108,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_08",
+      "t": 0.7,
+      "l": 68,
+      "ok": false,
+      "tactic": "rcases a with (_ | _ | a)",
+      "r": "err"
+    },
+    {
+      "tid": "t4_08",
+      "t": 0.7,
+      "l": 69,
+      "ok": false,
+      "tactic": "rcases ab with (_ | _ | _ | _)",
+      "r": "err"
+    },
+    {
+      "tid": "t4_09",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_09",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_09",
+      "t": 0.7,
+      "l": 56,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_09",
+      "t": 0.7,
+      "l": 245,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_10",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_10",
+      "t": 0.3,
+      "l": 512,
+      "ok": false,
+      "r": "rep"
+    },
+    {
+      "tid": "t4_10",
+      "t": 0.7,
+      "l": 512,
+      "ok": false,
+      "tactic": "lean4 proof",
+      "r": "err"
+    },
+    {
+      "tid": "t4_10",
+      "t": 0.7,
+      "l": 28,
+      "ok": false,
+      "r": "rep"
+    }
+  ]
+}
